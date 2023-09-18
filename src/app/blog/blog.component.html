@@ -1,0 +1,10 @@
+<main>
+
+  <div class="post-container" *ngIf="post">
+    <img [src]="post.$featuredImage" alt="">
+    <h2>{{post.$tittle}}</h2>
+    <p class="author">{{post.$author}}</p>
+    <!-- <p class="content">{{blogPost.fields.content.content | json}}</p> -->
+    <p [innerHTML]="post.$content"></p>
+  </div>
+</main>
