@@ -1,7 +1,7 @@
 <header>
 </header>
 
-<main *ngIf="blogPosts$ | async as blogPosts">
+<!-- <main *ngIf="blogPosts$ | async as blogPosts">
 
   <div class="blog-posts-container" *ngFor="let blogPost of blogPosts.items">
     <img [src]="blogPost.fields.featuredImage.fields.file.url" alt="">
@@ -11,4 +11,36 @@
     <a [routerLink]="['blog', blogPost.fields.urlHandler ]">Read more</a>
   </div>
 
+</main> -->
+
+<nav>
+  <div class="navigation-items row">
+    <div class="nav-items col-lg-5 col-md-12 col-sm-12">
+      <div class="row">
+        <a class="nav-item col-lg-3 col-md-12 col-sm-12" href="#">Logo</a>
+        <a class="nav-item col-lg-3 col-md-12 col-sm-12" href="#">Home</a>
+        <a class="nav-item col-lg-3 col-md-12 col-sm-12" href="#">News</a>
+        <a class="nav-item col-lg-3 col-md-12 col-sm-12" href="#">About</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="body row">
+    <div class="welcome-container col-lg-5 col-md-12 col-sm-12">
+      <div class="text-container container">
+        <h1>De filosofía va la cosa</h1>
+        <h2>Un blog de filosofía diferente</h2>
+        <p class="welcome-text">
+         Explora las profundidades del pensamiento humano en nuestro blog de filosofía. Descubre ideas fascinantes, reflexiones inspiradoras y debates intelectuales que te invitarán a cuestionar el mundo que te rodea. Bienvenido a un viaje de exploración filosófica.
+        </p>
+        <button class="btn-primary">
+          Ver mas
+        </button>
+      </div>
+    </div>
+    <div class="image-container col-lg-7 col-md-12 col-sm-12">
+      <img class="body-illustration" src="../../assets/5272900.png" alt="">
+    </div>
+  </div>
 </main>

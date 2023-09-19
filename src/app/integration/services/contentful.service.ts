@@ -20,6 +20,10 @@ export class ContentfulService {
     const promise =  this.client.getEntries();
     return from(promise);
   }
+  getLatestEntries(){
+    const promise = this.client.getEntries({"limit": 4});
+    return from(promise);
+  }
 
   getEntryById(id: string) {
     const promise = this.client.getEntry(id);
