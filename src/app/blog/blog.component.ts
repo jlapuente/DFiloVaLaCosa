@@ -5,6 +5,7 @@ import { Observable, from } from 'rxjs';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Post } from '../integration/classes/post';
 import { FeaturedImage } from '../integration/classes/featuredImage';
+declare var $: any;
 
 @Component({
   selector: 'app-blog',
@@ -37,6 +38,8 @@ export class BlogComponent {
             entry.fields['author'] != null ? this.post.$author = String(entry.fields['author']) : this.post.$author = "";
             entry.fields['updatedDate'] != null ? this.post.$updatedDate = new Date(String(entry.fields['updatedDate'])) : this.post.$updatedDate = new Date();
             entry.fields['visible'] != null ? this.post.$visible = Boolean(String(entry.fields['visible'])) : this.post.$visible = false;
+
+            $('#js-preloader').addClass('loaded');
           });
       }
     )

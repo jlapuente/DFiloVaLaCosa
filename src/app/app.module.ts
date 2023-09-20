@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { MarkdownModule } from 'ngx-markdown';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MarkdownModule.forRoot(),
-    NgbModule
+    MarkdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

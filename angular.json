@@ -5,11 +5,7 @@
   "projects": {
     "philosophy-blog": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -24,16 +20,23 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
+            "inlineStyleLanguage": "css",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": [
-              "node_modules/marked/marked.min.js"
+              "src/assets/vendor/jquery/jquery.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.min.js",
+              "src/assets/js/animation.js",
+              "src/assets/js/imagesloaded.js",
+              "src/assets/js/isotope.js",
+              "src/assets/js/owl-carousel.js",
+              "src/assets/js/tabs.js",
+              "src/assets/js/templatemo-custom.js"
             ]
           },
           "configurations": {
@@ -89,13 +92,13 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
+            "inlineStyleLanguage": "css",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }

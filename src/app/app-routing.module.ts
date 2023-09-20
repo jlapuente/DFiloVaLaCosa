@@ -14,6 +14,11 @@ const routes: Routes = [
     title: 'Home'
   },
   {
+    path: 'home',
+    component: HomeComponent,
+    title: 'Home'
+  },
+  {
     path: 'blog/:id',
     component: BlogComponent,
     title: 'Philosophy Blog'
@@ -21,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
