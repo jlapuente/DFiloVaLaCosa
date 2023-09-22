@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { EmailService } from '../integration/services/email.service';
 import { Mail } from '../integration/classes/mail';
 import { EmailJSResponseStatus } from '@emailjs/browser';
+import { ViewportScroller } from '@angular/common';
 declare var $: any;
 
 @Component({
@@ -13,7 +14,7 @@ declare var $: any;
 })
 export class HomeComponent {
 
-  constructor(private contentfulService: ContentfulService, private mailService: EmailService) { }
+  constructor(private contentfulService: ContentfulService, private mailService: EmailService, private viewPortScroller: ViewportScroller) { }
 
   // blogPosts$ : Observable<any> | undefined;
   posts: any[] = [];
@@ -39,6 +40,10 @@ export class HomeComponent {
       console.log(error.text);
     });
 
+  }
+
+  scrollTo(id: string) {
+    this.viewPortScroller.scrollToAnchor(id);
   }
 
 }
