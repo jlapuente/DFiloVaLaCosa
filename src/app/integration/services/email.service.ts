@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { Mail } from '../../integration/classes/mail'
-import { Constants } from '../Constants';
+import { Constants } from '../constants';
 
 @Injectable({
   providedIn: 'root'

@@ -3,7 +3,7 @@ import { createClient, Entry } from 'contentful';
 import { environment } from '../../environments/environment';
 import { from } from 'rxjs';
 import { FeaturedImage } from '../classes/featuredImage';
-import { Constants } from '../Constants';
+import { Constants } from '../constants';
 
 @Injectable({
   providedIn: 'root'
