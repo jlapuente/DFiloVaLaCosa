@@ -27,6 +27,17 @@ export class HomeComponent {
       console.log(this.posts);
     });
     console.log(this.mail);
+
+    // Menu Dropdown Toggle
+    if ($('.menu-trigger').length) {
+      console.log("hay menu trigger");
+      $(".menu-trigger").on('click', function () {
+        let elem = $(".menu-trigger");
+        $(elem).toggleClass('active');
+        $('.header-area .nav').slideToggle(200);
+      });
+    }
+
   }
 
   sendMail() {
