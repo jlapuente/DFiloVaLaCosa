@@ -1504,7 +1504,7 @@ responsive
     margin-bottom: 15px;
   }
   .our-blog {
-    margin-top: 0px;
+    margin-top: 300px;
   }
   .our-blog .top-dec {
     display: none;
@@ -1547,7 +1547,7 @@ responsive
 
 @media (max-width: 767px) {
   .about-us .left-image {
-    bottom: -280px;
+    bottom: -400px;
   }
   .our-blog .right-list {
     margin-left: 0px;

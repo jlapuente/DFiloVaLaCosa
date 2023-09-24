@@ -854,19 +854,6 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 
 var widget = $.widget;
 
-
-/*!
- * jQuery UI Mouse 1.11.2
- * http://jqueryui.com
- *
- * Copyright 2014 jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- *
- * http://api.jqueryui.com/mouse/
- */
-
-
 var mouseHandled = false;
 $( document ).mouseup( function() {
 	mouseHandled = false;
@@ -16576,7 +16563,5 @@ var tooltip = $.widget( "ui.tooltip", {
 		this.liveRegion.remove();
 	}
 });
-
-
 
 }));
