@@ -3,6 +3,7 @@ import { createClient, Entry } from 'contentful';
 import { environment } from '../../environments/environment';
 import { from } from 'rxjs';
 import { FeaturedImage } from '../classes/featuredImage';
+import { Constants } from '../Constants';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ContentfulService {
 
   private client = createClient({
     space: environment.space,
-    accessToken: environment.accessToken
+    accessToken: Constants.CONTENTFUL_ACCESS_TOKEN
   })
 
   getAllEntries(){

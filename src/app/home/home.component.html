@@ -52,12 +52,12 @@
               <!-- ***** Menu Start ***** -->
               <ul class="nav">
                 <li class="scroll-to-section"><a (click)="scrollTo('top')" class="active">Home</a></li>
-                <li class="scroll-to-section"><a (click)="scrollTo('about')">About Us</a></li>
+                <li class="scroll-to-section"><a (click)="scrollTo('about')">Sobre nosotros</a></li>
                 <!-- <li class="scroll-to-section"><a href="#services">Services</a></li> -->
-                <li class="scroll-to-section"><a (click)="scrollTo('portfolio')">Portfolio</a></li>
+                <!-- <li class="scroll-to-section"><a (click)="scrollTo('portfolio')">Portfolio</a></li> -->
                 <li class="scroll-to-section"><a (click)="scrollTo('blog')">Blog</a></li>
                 <li class="scroll-to-section">
-                  <div class="main-red-button"><a href="#contact">Contact Now</a></div>
+                  <div class="main-red-button"><a (click)="scrollTo('contact')">Contact Now</a></div>
                 </li>
               </ul>
               <a class='menu-trigger'>
@@ -85,15 +85,6 @@
                     inspiradoras y debates intelectuales que te invitarán a cuestionar el mundo que te rodea. Bienvenido
                     a un viaje de
                     exploración filosófica.</p>
-                  <!-- <form id="search" action="#" method="GET">
-                    <fieldset>
-                      <input type="address" name="address" class="email" placeholder="Your website URL..."
-                        autocomplete="on" required>
-                    </fieldset>
-                    <fieldset>
-                      <button type="submit" class="main-button">Analyze Site</button>
-                    </fieldset>
-                  </form> -->
                 </div>
               </div>
               <div class="col-lg-6">
@@ -394,32 +385,34 @@
               <div class="row">
                 <div class="col-lg-6">
                   <fieldset>
-                    <input type="name" name="name" id="name" placeholder="Nombre" autocomplete="on" required
-                      [(ngModel)]="mail.name">
+                    <input type="name" name="name" id="name" placeholder="Nombre" autocomplete="on" 
+                      [formControl]="nameFormControl" [value]="mail.name">
                   </fieldset>
                 </div>
                 <div class="col-lg-6">
                   <fieldset>
-                    <input type="surname" name="surname" id="surname" placeholder="Apellido" autocomplete="on" required
-                      [(ngModel)]="mail.surName">
+                    <input type="text" name="surname" id="surname" placeholder="Apellido" autocomplete="on" 
+                      [formControl]="surNameFormControl" [value]="mail.surName">
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
                     <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Tu correo"
-                      required="" [(ngModel)]="mail.email">
+                       [formControl]="mailFormControl" [value]="mail.email">
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
                     <textarea name="message" type="text" class="form-control" id="message" placeholder="Mensaje"
-                      required="" [(ngModel)]="mail.body"></textarea>
+                       [formControl]="messageFormControl" [value]="mail.body"></textarea>
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
                     <!--TODO: Esto era un button, hay que aplicarle los estilos-->
-                    <a id="form-submit" class="main-button" (click)="sendMail()">Enviar mensaje</a>
+                    <div class="main-blue-button">
+                      <a id="form-submit" (click)="sendMail()">Enviar mensaje</a>
+                    </div>
                   </fieldset>
                 </div>
               </div>
