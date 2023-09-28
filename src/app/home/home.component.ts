@@ -36,7 +36,7 @@ export class HomeComponent {
     this.contentfulService.getLatestEntries().subscribe(data => {
       this.loading(true);
       this.posts = data.items;
-      console.log(this.posts);
+      // console.log(this.posts);
     });
 
     // Menu Dropdown Toggle
@@ -52,16 +52,16 @@ export class HomeComponent {
   sendMail() {
     this.loading(false);
     if (this.mailForm.valid) {
-      console.log(this.mailForm.value);
+      // console.log(this.mailForm.value);
       this.mailService.sendEmail(this.mailForm.value).then((result: EmailJSResponseStatus) => {
-        console.log(result.text);
+        // console.log(result.text);
         this.mail = new Mail();
         this.loading(true);
       }, (error: any) => {
-        console.log(error.text);
+        // console.log(error.text);
       });
     } else {
-      console.log("error")
+      // console.log("error")
     }
   }
 
@@ -74,7 +74,7 @@ export class HomeComponent {
   }
 
   checkMail(): boolean {
-    console.log(Object.values(this.mail).every(x => x === null || x === ''));
+    // console.log(Object.values(this.mail).every(x => x === null || x === ''));
     return Object.values(this.mail).every(x => x === null || x === '');
   }
 

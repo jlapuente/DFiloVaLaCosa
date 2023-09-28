@@ -98,9 +98,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/vendor/jquery/jquery.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.min.js",
+              "src/assets/js/animation.js",
+              "src/assets/js/imagesloaded.js",
+              "src/assets/js/isotope.js",
+              "src/assets/js/owl-carousel.js",
+              "src/assets/js/tabs.js",
+              "src/assets/js/templatemo-custom.js"
+            ]
           }
         }
       }

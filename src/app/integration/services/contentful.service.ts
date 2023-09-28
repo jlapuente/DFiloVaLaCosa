@@ -17,12 +17,21 @@ export class ContentfulService {
     accessToken: Constants.CONTENTFUL_ACCESS_TOKEN
   })
 
-  getAllEntries(){
-    const promise =  this.client.getEntries();
+  getAllEntries() {
+    const promise = this.client.getEntries();
     return from(promise);
   }
-  getLatestEntries(){
-    const promise = this.client.getEntries({"limit": 4});
+  getLatestEntries() {
+    const promise = this.client.getEntries({ "limit": 4 });
+    return from(promise);
+  }
+
+  getTenEntries(entriesToSkip: number) {
+    const promise = this.client.getEntries({
+      "skip": entriesToSkip,
+      "limit": 2,
+      // "order": "sys.createdAt"
+    })
     return from(promise);
   }
 
@@ -39,11 +48,11 @@ export class ContentfulService {
     return from(promise)
   }
 
-  test(){
+  test() {
     this.client.getEntries({
       content_type: "blogPost",
       "fields.author": "Javier Lapuente",
-      "fields.visible": "true" 
+      "fields.visible": "true"
     }).then(data => console.log(data));
   }
 
