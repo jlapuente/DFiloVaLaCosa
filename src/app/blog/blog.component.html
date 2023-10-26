@@ -55,6 +55,9 @@
                 <p class="author">{{post.$author}}</p>
                 <!-- <p class="content">{{blogPost.fields.content.content | json}}</p> -->
                 <p [innerHTML]="post.$content | mdToHtml"></p>
+                <!-- <markdown [src]="post.$content"> -->
+                <!-- </markdown> -->
+
               </div>
             </div>
           </div>

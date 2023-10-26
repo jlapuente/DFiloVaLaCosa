@@ -36,7 +36,8 @@
               "src/assets/js/isotope.js",
               "src/assets/js/owl-carousel.js",
               "src/assets/js/tabs.js",
-              "src/assets/js/templatemo-custom.js"
+              "src/assets/js/templatemo-custom.js",
+              "node_modules/marked/marked.min.js"
             ]
           },
           "configurations": {
