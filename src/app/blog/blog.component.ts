@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContentfulService } from '../integration/services/contentful.service';
 import { Observable, from } from 'rxjs';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { Options, documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { Post } from '../integration/classes/post';
 import { FeaturedImage } from '../integration/classes/featuredImage';
 declare var $: any;
@@ -30,6 +31,7 @@ export class BlogComponent {
         this.contentfulService.getEntryByUrl(id)
           .subscribe(data => {
             let entry = data.items[0];
+            console.log(entry.fields['content']);
             entry.fields['tittle'] != null ? this.post.$tittle = String(entry.fields['tittle']) : this.post.$tittle = "";
             entry.fields['urlHandler'] != null ? this.post.$urlHandler = String(entry.fields['urlHandler']) : this.post.$urlHandler = "";
             entry.fields['featuredImage'] != null ? this.post.$featuredImage = this.contentfulService.createImage(entry.fields['featuredImage']) : new FeaturedImage('', '', '');
@@ -47,10 +49,17 @@ export class BlogComponent {
 
 
   _returnHtmlFromRichText(richText: any): string {
+    const options: Options = {
+      renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields } } }) =>
+          `<img src="${fields.file.url}" height="${fields.file.details.image.height}" width="${fields.file.details.image.width}" alt="${fields.description}"/>`,
+      },
+    };
+
     if (richText === undefined || richText === null || richText.nodeType !== 'document') {
       return '<p>Error</p>';
     }
-    return documentToHtmlString(richText);
+    return documentToHtmlString(richText, options);
   }
 
 }
