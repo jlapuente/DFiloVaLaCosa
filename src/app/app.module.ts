@@ -5,21 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
-import { MarkdownModule } from 'ngx-markdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogListComponent } from './blog-list/blog-list.component';
+import { MdToHtmlPipe } from './integration/pipes/md-to-html.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BlogComponent,
-    BlogListComponent
+    BlogListComponent,
+    MdToHtmlPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MarkdownModule.forRoot(),
     FormsModule,
     ReactiveFormsModule
   ],
