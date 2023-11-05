@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContentfulService } from '../integration/services/contentful.service';
 import { Observable, from } from 'rxjs';
@@ -31,10 +31,11 @@ export class BlogComponent {
         this.contentfulService.getEntryByUrl(id)
           .subscribe(data => {
             let entry = data.items[0];
+            console.log(entry);
             console.log(entry.fields['content']);
             entry.fields['tittle'] != null ? this.post.$tittle = String(entry.fields['tittle']) : this.post.$tittle = "";
             entry.fields['urlHandler'] != null ? this.post.$urlHandler = String(entry.fields['urlHandler']) : this.post.$urlHandler = "";
-            entry.fields['featuredImage'] != null ? this.post.$featuredImage = this.contentfulService.createImage(entry.fields['featuredImage']) : new FeaturedImage('', '', '');
+            entry.fields['featuredImage'] != null ? this.post.$featuredImage = this.contentfulService.createImage(entry.fields['featuredImage']) : new FeaturedImage('', '', '', );
             entry.fields['summary'] != null ? this.post.$summary = String(entry.fields['summary']) : this.post.$summary = "";
             entry.fields['content'] != null ? this.post.$content = this._returnHtmlFromRichText(entry.fields['content']) : this.post.$content = "";
             entry.fields['author'] != null ? this.post.$author = String(entry.fields['author']) : this.post.$author = "";

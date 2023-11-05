@@ -50,10 +50,9 @@
           <div class="row">
             <div class="col-lg-10 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <img [src]="post.$featuredImage" alt="">
+                <img [src]="post.$featuredImage.$image" [alt]="post.$featuredImage.$title">
                 <h2>{{post.$tittle}}</h2>
-                <p class="author">{{post.$author}}</p>
-                <!-- <p class="content">{{blogPost.fields.content.content | json}}</p> -->
+                <p class="author">{{post.$author}} - {{post.$updatedDate | date : 'dd/MM/yyyy' }}</p>
                 <p [innerHTML]="post.$content | mdToHtml"></p>
                 <!-- <markdown [src]="post.$content"> -->
                 <!-- </markdown> -->
@@ -75,7 +74,7 @@
         </div>
         <div class="col-lg-8 align-self-center">
           <div class="services">
-            
+
           </div>
         </div>
       </div>
