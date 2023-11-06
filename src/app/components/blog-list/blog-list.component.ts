@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentfulService } from '../integration/services/contentful.service';
-import { Post } from '../integration/classes/post';
+import { ContentfulService } from '../../integration/services/contentful.service';
+import { Post } from '../../integration/classes/post';
 declare var $: any;
 
 

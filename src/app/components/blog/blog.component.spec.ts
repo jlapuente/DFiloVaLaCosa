@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BlogComponent } from './blog.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { ContentfulService } from '../integration/services/contentful.service';
+import { ContentfulService } from '../../integration/services/contentful.service';
 import { BehaviorSubject, of } from 'rxjs';
 
 describe('BlogComponent', () => {

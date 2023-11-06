@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ContentfulService } from '../integration/services/contentful.service';
+import { ContentfulService } from '../../integration/services/contentful.service';
 import { Observable } from 'rxjs';
-import { EmailService } from '../integration/services/email.service';
-import { Mail } from '../integration/classes/mail';
+import { EmailService } from '../../integration/services/email.service';
+import { Mail } from '../../integration/classes/mail';
 import { EmailJSResponseStatus } from '@emailjs/browser';
 import { ViewportScroller } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';

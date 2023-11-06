@@ -1,11 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContentfulService } from '../integration/services/contentful.service';
+import { ContentfulService } from '../../integration/services/contentful.service';
 import { Observable, from } from 'rxjs';
 import { Options, documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { Post } from '../integration/classes/post';
-import { FeaturedImage } from '../integration/classes/featuredImage';
+import { Post } from '../../integration/classes/post';
+import { FeaturedImage } from '../../integration/classes/featuredImage';
 declare var $: any;
 
 @Component({
