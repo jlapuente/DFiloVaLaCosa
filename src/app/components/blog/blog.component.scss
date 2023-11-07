@@ -7,6 +7,17 @@ p.author {
 }
 
 img {
+  width: 75%;
+  text-align: center;
+}
+
+::ng-deep .post-image {
+  margin: auto;
+  display: flex;
   width: unset;
+  height: unset;
+}
+
+::ng-deep .subtext {
   text-align: center;
 }
