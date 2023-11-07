@@ -53,7 +53,7 @@ export class BlogComponent {
     const options: Options = {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields } } }) =>
-          `<p>
+          `<p class='asset-container'>
           <img class='post-image' src="${fields.file.url}" alt="${fields.title}"
            height=${fields.file.details.image.height} width=${fields.file.details.image.width}/>
            <small class='subtext'>${fields.description}</small>
