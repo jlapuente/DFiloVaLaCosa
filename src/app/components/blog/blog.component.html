@@ -53,10 +53,7 @@
                 <img [src]="post.$featuredImage.$image" [alt]="post.$featuredImage.$title">
                 <h1>{{post.$tittle}}</h1>
                 <p class="author">{{post.$author}} - {{post.$updatedDate | date : 'dd/MM/yyyy' }}</p>
-                <p [innerHTML]="post.$content | mdToHtml"></p>
-                <!-- <markdown [src]="post.$content"> -->
-                <!-- </markdown> -->
-
+                <p class="content" [innerHTML]="post.$content | mdToHtml"></p>
               </div>
             </div>
           </div>

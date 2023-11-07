@@ -1,3 +1,40 @@
+/* 
+---------------------------------------------
+Banner Style
+--------------------------------------------- 
+*/
+
+.main-banner {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 226px 0px 120px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-banner:after {
+  content: '';
+  background-image: url(../../../assets/images/baner-dec-left.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 193px;
+  height: 467px;
+}
+
+.main-banner:before {
+  content: '';
+  background-image: url(../../../assets/images/baner-dec-right.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  width: 98px;
+  height: 290px;
+}
+
 p {
   text-align: justify;
 }
@@ -24,4 +61,12 @@ img {
 
 ::ng-deep .asset-container {
   text-align: center;
+}
+
+::ng-deep h2 {
+  margin-top: 20px;
+}
+
+::ng-deep h3 {
+  margin-top: 10px;
 }
