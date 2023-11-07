@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ContentfulService } from '../../integration/services/contentful.service';
 import { Observable, from } from 'rxjs';
 import { Options, documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS, Block} from '@contentful/rich-text-types';
 import { Post } from '../../integration/classes/post';
 import { FeaturedImage } from '../../integration/classes/featuredImage';
 declare var $: any;
@@ -57,8 +57,14 @@ export class BlogComponent {
           <img class='post-image' src="${fields.file.url}" alt="${fields.title}"
            height=${fields.file.details.image.height} width=${fields.file.details.image.width}/>
            <small class='subtext'>${fields.description}</small>
-           </p>`
-      },
+           </p>`,
+        [BLOCKS.HEADING_1]: (node, next) => (`<h2 class='titulo'> ${next(node.content)} </h2>`),
+        [BLOCKS.HEADING_2]: (node, next) => (`<h3> ${next(node.content)} </h3>`),
+        [BLOCKS.HEADING_3]: (node, next) => (`<h4> ${next(node.content)} </h4>`),
+        [BLOCKS.HEADING_4]: (node, next) => (`<h5> ${next(node.content)} </h5>`),
+        [BLOCKS.HEADING_5]: (node, next) => (`<h6> ${next(node.content)} </h6>`),
+        [BLOCKS.HEADING_6]: (node, next) => (`<h6> ${next(node.content)} </h6>`)
+      }
     };
 
     if (richText === undefined || richText === null || richText.nodeType !== 'document') {
