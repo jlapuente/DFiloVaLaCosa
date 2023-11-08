@@ -36,7 +36,7 @@ export class HomeComponent {
     this.contentfulService.getLatestEntries().subscribe(data => {
       this.loading(true);
       this.posts = data.items;
-      // console.log(this.posts);
+      console.log(this.posts);
     });
 
     // Menu Dropdown Toggle

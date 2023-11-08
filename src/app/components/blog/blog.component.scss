@@ -63,10 +63,126 @@ img {
   text-align: center;
 }
 
+::ng-deep h1,
+::ng-deep h2,
+::ng-deep h3,
+::ng-deep h4,
+::ng-deep h5,
+::ng-deep h6 {
+  text-align: center;
+}
+
+h1.post-tittle{
+  text-align: left;
+}
+
 ::ng-deep h2 {
   margin-top: 20px;
 }
 
 ::ng-deep h3 {
   margin-top: 10px;
+}
+
+@media (max-width: 992px) {
+  .main-banner {
+    padding-top: 196px;
+  }
+
+  .main-banner .left-content {
+    margin-right: 0px;
+    text-align: center;
+    margin-bottom: 45px;
+  }
+
+  .main-banner:after {
+    top: 76px;
+    z-index: -1;
+  }
+
+  .main-banner .left-content form,
+  .main-banner .left-content form input {
+    width: 100% !important;
+  }
+
+  #about {
+    margin-top: 0px;
+  }
+
+  .about-us {
+    position: relative;
+    background-image: none;
+    padding: 0px;
+  }
+
+  .about-us .left-image {
+    margin-right: 0px;
+    position: absolute;
+    bottom: -220px;
+    right: 0;
+  }
+
+  .about-us .services {
+    text-align: center;
+  }
+
+  .about-us .services .item {
+    background: rgb(255, 77, 30);
+    background: linear-gradient(105deg, rgba(255, 77, 30, 1) 0%, rgba(255, 44, 109, 1) 100%);
+    padding: 30px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+  .about-us .services .item .right-text {
+    text-align: left;
+  }
+
+  .our-blog .left-image .info .inner-content {
+    position: relative;
+    margin-right: 0px;
+  }
+
+  .our-blog .left-image .info .main-blue-button {
+    position: relative;
+    bottom: 0px;
+    margin-top: 30px;
+  }
+
+  .our-blog .left-image {
+    margin-bottom: 45px;
+  }
+
+  footer p {
+    margin: 15px 0px 30px 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-us .left-image {
+    bottom: -400px;
+  }
+
+  .our-blog .right-list {
+    margin-left: 0px;
+  }
+
+  .our-blog .right-list ul li {
+    display: inline-block;
+    margin-top: 0px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+  }
+
+  .our-blog .right-list .left-content {
+    margin-right: 0px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .our-blog .right-list .right-image,
+  .our-blog .right-list .right-image img {
+    width: 100%;
+  }
+
 }
