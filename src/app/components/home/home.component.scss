@@ -1,9 +1,11 @@
 html {
   scroll-behavior: smooth;
 }
+
 .scroll-to-section {
   cursor: pointer;
 }
+
 .main-blue-button {
   cursor: pointer;
 }
@@ -285,5 +287,9 @@ Banner Style
 }
 
 .post-content {
+  text-align: justify;
+}
+
+.left-content p {
   text-align: justify;
 }
