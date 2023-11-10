@@ -240,6 +240,12 @@
                         src="{{posts[3].fields.featuredImage.fields.file.url}}" alt=""></a>
                   </div>
                 </li>
+                <li *ngIf="!posts[3]">
+                  <div class="left-content align-self-center">
+                  </div>
+                  <div class="right-image">
+                  </div>
+                </li>
               </ul>
             </div>
           </div>

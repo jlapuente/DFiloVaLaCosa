@@ -8,7 +8,7 @@ Banner Style
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 226px 0px 120px 0px;
+  padding: 226px 0px 0px 0px;
   position: relative;
   overflow: hidden;
 }
@@ -71,6 +71,10 @@ img {
 ::ng-deep h6 {
   text-align: center;
   margin-top: 3%;
+  margin-bottom: 2%;
+}
+
+::ng-deep p {
   margin-bottom: 2%;
 }
 
@@ -154,6 +158,7 @@ h1.post-tittle{
   ::ng-deep p {
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 4%;
   }
 }
 

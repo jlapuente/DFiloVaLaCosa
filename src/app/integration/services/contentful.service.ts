@@ -22,7 +22,12 @@ export class ContentfulService {
     return from(promise);
   }
   getLatestEntries() {
-    const promise = this.client.getEntries({ "limit": 4 });
+    const promise = this.client.getEntries(
+      {
+        "limit": 4,
+        content_type: "blogPost",
+        "fields.visible": "true"
+      });
     return from(promise);
   }
 
@@ -44,6 +49,7 @@ export class ContentfulService {
     const promise = this.client.getEntries({
       content_type: "blogPost",
       "fields.urlHandler": url,
+      "fields.visible": "true"
     });
     return from(promise)
   }
