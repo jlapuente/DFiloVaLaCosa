@@ -1,30 +1,31 @@
-# PhilosophyBlog
+# De Filo Va La Cosa - English
+
+www.defilovalacosa.es
+
+## Site information
+
+Welcome to 'De Filo va La Cosa', your digital destination to explore the depths of philosophical thinking! This blog, crafted with the powerful Angular technology, invites you to delve into reflections, debates, and analyses ranging from fundamental questions of existence to ethical and political complexities.
+
+'De Filo va La Cosa' is an exciting project aiming to foster critical thinking and intellectual exploration through philosophy. Here, you'll find insightful articles written by passionate philosophers and enthusiasts of abstract thinking.
+
+## Technic information
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm build-prod` to build the project. The build artifacts will be stored in the `docs/` directory.
 
-## Running end-to-end tests
+# De Filo Va La Cosa - Español
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Información del sitio
 
-## Further help
+¡Bienvenido a 'De Filo Va La Cosa', tu destino digital para explorar las profundidades del pensamiento filosófico! Este blog, creado con la potente tecnología Angular, te invita a sumergirte en reflexiones, debates y análisis que abarcan desde las preguntas fundamentales de la existencia hasta las complejidades éticas y políticas.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+'De Filo Va La Cosa' es un proyecto apasionante que busca fomentar el pensamiento crítico y la exploración intelectual a través de la filosofía. Aquí encontrarás artículos perspicaces escritos por apasionados filósofos y entusiastas del pensamiento abstracto.
 
-npx angular-cli-ghpages --dir=dist/philosophy-blog
-ng build --configuration production --deploy-url=https://jlapuente.github.io/philosophy-blog/ --base-href=https://jlapuente.github.io/philosophy-blog/
+## Información técnica
+
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 15.1.3.
+Ejecuta `ng serve` para iniciar un servidor de desarrollo. Navega a `http://localhost:4200/`.
+Ejecuta `ng test` para ejecutar las pruebas unitarias a través de [Karma](https://karma-runner.github.io).
+Ejecuta `npm run build-prod` para construir el proyecto. Los artefactos de construcción se almacenarán en el directorio `docs/`.
