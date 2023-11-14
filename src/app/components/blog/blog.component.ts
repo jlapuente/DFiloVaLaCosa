@@ -6,6 +6,7 @@ import { Options, documentToHtmlString } from '@contentful/rich-text-html-render
 import { BLOCKS, Block} from '@contentful/rich-text-types';
 import { Post } from '../../integration/classes/post';
 import { FeaturedImage } from '../../integration/classes/featuredImage';
+import { ImageService } from 'src/app/integration/services/image.service';
 declare var $: any;
 
 @Component({
@@ -17,7 +18,7 @@ export class BlogComponent {
 
   blogPosts$: Observable<any> | undefined;
 
-  constructor(private route: ActivatedRoute, private contentfulService: ContentfulService) {
+  constructor(private route: ActivatedRoute, private contentfulService: ContentfulService, private imageService: ImageService) {
 
   }
 
@@ -35,7 +36,7 @@ export class BlogComponent {
             console.log(entry.fields['content']);
             entry.fields['tittle'] != null ? this.post.$tittle = String(entry.fields['tittle']) : this.post.$tittle = "";
             entry.fields['urlHandler'] != null ? this.post.$urlHandler = String(entry.fields['urlHandler']) : this.post.$urlHandler = "";
-            entry.fields['featuredImage'] != null ? this.post.$featuredImage = this.contentfulService.createImage(entry.fields['featuredImage']) : new FeaturedImage('', '', '',);
+            entry.fields['featuredImage'] != null ? this.post.$featuredImage = this.imageService.createImage(entry.fields['featuredImage']) : new FeaturedImage('', '', '',);
             entry.fields['summary'] != null ? this.post.$summary = String(entry.fields['summary']) : this.post.$summary = "";
             entry.fields['content'] != null ? this.post.$content = this._returnHtmlFromRichText(entry.fields['content']) : this.post.$content = "";
             entry.fields['author'] != null ? this.post.$author = String(entry.fields['author']) : this.post.$author = "";

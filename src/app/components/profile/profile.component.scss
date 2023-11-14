@@ -1,0 +1,272 @@
+* {
+  --borderWidth-thin: max(1px, 0.0625rem);
+  --borderWidth-thick: max(2px, 0.125rem);
+  --borderWidth-thicker: max(4px, 0.25rem);
+  --borderRadius-small: 0.1875rem;
+  --borderRadius-medium: 0.375rem;
+  --borderRadius-large: 0.75rem;
+  --color-canvas-default: #0d1117;
+  --color-border-default: #30363d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-to-section {
+  cursor: pointer;
+}
+
+.main-blue-button {
+  cursor: pointer;
+}
+
+/* 
+---------------------------------------------
+Banner Style
+--------------------------------------------- 
+*/
+
+.main-banner {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 150px 0px 120px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-banner:after {
+  content: '';
+  background-image: url(../../../assets/images/baner-dec-left.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 193px;
+  height: 467px;
+}
+
+.main-banner:before {
+  content: '';
+  background-image: url(../../../assets/images/baner-dec-right.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  width: 98px;
+  height: 290px;
+}
+
+.main-banner .left-content {
+  margin-right: 45px;
+}
+
+@media (max-width: 992px) {
+  .main-banner {
+    padding-top: 196px;
+  }
+
+  .main-banner .left-content {
+    margin-right: 0px;
+    text-align: center;
+    margin-bottom: 45px;
+  }
+
+  .main-banner:after {
+    top: 76px;
+    z-index: -1;
+  }
+
+  .main-banner .left-content form,
+  .main-banner .left-content form input {
+    width: 100% !important;
+  }
+
+  #about {
+    margin-top: 0px;
+  }
+
+  .about-us {
+    position: relative;
+    background-image: none;
+    padding: 0px;
+  }
+
+  .about-us .left-image {
+    margin-right: 0px;
+    position: absolute;
+    bottom: -220px;
+    right: 0;
+  }
+
+  .about-us .services {
+    text-align: center;
+  }
+
+  .about-us .services .item {
+    background: rgb(255, 77, 30);
+    background: linear-gradient(105deg, rgba(255, 77, 30, 1) 0%, rgba(255, 44, 109, 1) 100%);
+    padding: 30px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+  .about-us .services .item .right-text {
+    text-align: left;
+  }
+
+  .our-services {
+    margin-top: 200px;
+  }
+
+  .our-services .left-image {
+    margin-right: 0px;
+    margin-bottom: 45px;
+  }
+
+  .our-services .section-heading h2,
+  .our-services .section-heading p {
+    margin-right: 0px;
+    text-align: center;
+  }
+
+  .our-portfolio .section-heading h2 {
+    margin: 0px 0px 80px 0px;
+  }
+
+  .our-portfolio .item {
+    margin-bottom: 15px;
+  }
+
+  .our-blog {
+    margin-top: 300px;
+  }
+
+  .our-blog .top-dec {
+    display: none;
+  }
+
+  .our-blog .section-heading h2 {
+    margin-right: 0px;
+    text-align: center;
+    margin-bottom: 45px;
+  }
+
+  .our-blog .left-image .info .inner-content {
+    position: relative;
+    margin-right: 0px;
+  }
+
+  .our-blog .left-image .info .main-blue-button {
+    position: relative;
+    bottom: 0px;
+    margin-top: 30px;
+  }
+
+  .our-blog .left-image {
+    margin-bottom: 45px;
+  }
+
+  .contact-us {
+    margin-top: 60px;
+    padding: 120px 0px;
+  }
+
+  .contact-us .section-heading {
+    text-align: center;
+  }
+
+  form#contact {
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+
+  form#contact .contact-dec {
+    display: none;
+  }
+
+  footer p {
+    margin: 15px 0px 30px 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-us .left-image {
+    bottom: -400px;
+  }
+
+  .our-blog .right-list {
+    margin-left: 0px;
+  }
+
+  .our-blog .right-list ul li {
+    display: inline-block;
+    margin-top: 0px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+  }
+
+  .our-blog .right-list .left-content {
+    margin-right: 0px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .our-blog .right-list .right-image,
+  .our-blog .right-list .right-image img {
+    width: 100%;
+  }
+
+  .phone-info h4 span {
+    display: block;
+    margin-top: 15px;
+  }
+
+  .phone-info h4 span i {
+    margin-left: 0px;
+  }
+}
+
+.post-content {
+  text-align: justify;
+}
+
+.left-content p {
+  text-align: justify;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.author-name {
+  font-size: larger;
+}
+
+.author-data, .author-data h2 {
+  font-size: medium;
+  width: auto;
+  display: inline-block;
+  font-weight: normal;
+}
+
+.profile-container {
+  margin-top: 5%;
+}
+
+.border-box {
+  // background-color: var(--color-canvas-default);
+  border-color: var(--color-border-default);
+  border-radius: var(--borderRadius-medium, 0.375rem);
+  border-style: solid;
+  border-width: var(--borderWidth-thin, max(1px, 0.0625rem));
+}
+
+.content {
+  margin-top: 2%;
+}
+
+.content-tittle {
+  margin-top: 2%;
+}

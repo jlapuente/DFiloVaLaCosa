@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   // {
@@ -11,17 +12,22 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Home'
+    title: 'De Filo Va La Cosa'
   },
   {
     path: 'home',
     component: HomeComponent,
-    title: 'Home'
+    title: 'De Filo Va La Cosa'
   },
   {
     path: 'blog/:id',
     component: BlogComponent,
-    title: 'Philosophy Blog'
+    title: 'Post'
+  },
+  {
+    path: 'profile/:id',
+    component: ProfileComponent,
+    title: 'Perfil del autor'
   },
 ];
 

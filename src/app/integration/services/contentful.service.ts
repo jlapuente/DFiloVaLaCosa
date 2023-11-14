@@ -62,8 +62,4 @@ export class ContentfulService {
     }).then(data => console.log(data));
   }
 
-  createImage(image: any): FeaturedImage {
-    let featuredImage: FeaturedImage = new FeaturedImage(image.fields.title, image.fields.description, image.fields.file.url);
-    return featuredImage;
-  }
 }

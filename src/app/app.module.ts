@@ -8,6 +8,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogListComponent } from './components/blog-list/blog-list.component';
 import { MdToHtmlPipe } from './integration/pipes/md-to-html.pipe';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MdToHtmlPipe } from './integration/pipes/md-to-html.pipe';
     HomeComponent,
     BlogComponent,
     BlogListComponent,
-    MdToHtmlPipe
+    MdToHtmlPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
