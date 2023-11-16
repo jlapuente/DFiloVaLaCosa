@@ -26,7 +26,8 @@ export class ContentfulService {
       {
         "limit": 4,
         content_type: "blogPost",
-        "fields.visible": "true"
+        "fields.visible": "true",
+        "fields.deleted": "false"
       });
     return from(promise);
   }
@@ -49,7 +50,8 @@ export class ContentfulService {
     const promise = this.client.getEntries({
       content_type: "blogPost",
       "fields.urlHandler": url,
-      "fields.visible": "true"
+      "fields.visible": "false",
+      "fields.deleted": "false"
     });
     return from(promise)
   }
