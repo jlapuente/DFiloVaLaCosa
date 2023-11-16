@@ -50,7 +50,6 @@ export class ContentfulService {
     const promise = this.client.getEntries({
       content_type: "blogPost",
       "fields.urlHandler": url,
-      "fields.visible": "false",
       "fields.deleted": "false"
     });
     return from(promise)
