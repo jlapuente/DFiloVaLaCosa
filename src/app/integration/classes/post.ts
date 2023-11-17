@@ -9,6 +9,7 @@ export class Post {
     private author: string = '';
     private updatedDate: Date = new Date()
     private visible: boolean = true;
+    private tags: string[] = [];
 
 
     constructor($tittle: string, $urlHandler: string, $featuredImage: FeaturedImage, $summary: string, $content: string, $author: string, $updatedDate: Date, $visible: boolean) {
@@ -149,5 +150,22 @@ export class Post {
     public set $visible(value: boolean) {
         this.visible = value;
     }
+
+    /**
+     * Getter $tags
+     * @return {string[] }
+     */
+	public get $tags(): string[]  {
+		return this.tags;
+	}
+
+    /**
+     * Setter $tags
+     * @param {string[] } value
+     */
+	public set $tags(value: string[] ) {
+		this.tags = value;
+	}
+
 
 }

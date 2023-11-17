@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ContentfulService } from '../../integration/services/contentful.service';
 import { Observable, from } from 'rxjs';
 import { Options, documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { BLOCKS, Block} from '@contentful/rich-text-types';
+import { BLOCKS, Block } from '@contentful/rich-text-types';
 import { Post } from '../../integration/classes/post';
 import { FeaturedImage } from '../../integration/classes/featuredImage';
 import { ImageService } from 'src/app/integration/services/image.service';
+import { Meta, Title } from '@angular/platform-browser';
 declare var $: any;
 
 @Component({
@@ -18,7 +19,8 @@ export class BlogComponent {
 
   blogPosts$: Observable<any> | undefined;
 
-  constructor(private route: ActivatedRoute, private contentfulService: ContentfulService, private imageService: ImageService) {
+  constructor(private route: ActivatedRoute, private contentfulService: ContentfulService, private imageService: ImageService, private titleService: Title,
+    private metaTagService: Meta) {
 
   }
 
@@ -43,12 +45,27 @@ export class BlogComponent {
             entry.fields['updatedDate'] != null ? this.post.$updatedDate = new Date(String(entry.fields['updatedDate'])) : this.post.$updatedDate = new Date();
             entry.fields['visible'] != null ? this.post.$visible = Boolean(String(entry.fields['visible'])) : this.post.$visible = false;
 
+            this.updateMetaTags();
             $('#js-preloader').addClass('loaded');
           });
       }
     )
   }
 
+  updateMetaTags() {
+    this.titleService.setTitle(this.post.$tittle);
+    this.metaTagService.addTags([
+      { name: 'keywords', content: 'blog, filosofía,' + this.post.$tags.join(',') },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'author', content: this.post.$author },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'date', content: this.post.$updatedDate.toISOString(), scheme: 'DD-MM-YYYY' },
+      { charset: 'UTF-8' }
+    ]);
+    this.metaTagService.updateTag(
+      { name: 'description', content: 'Articulo filosófico - ' + this.post.$tittle }
+    );
+  }
 
   _returnHtmlFromRichText(richText: any): string {
     const options: Options = {
