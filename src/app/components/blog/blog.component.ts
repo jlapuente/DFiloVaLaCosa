@@ -44,7 +44,10 @@ export class BlogComponent {
             entry.fields['author'] != null ? this.post.$author = String(entry.fields['author']) : this.post.$author = "";
             entry.fields['updatedDate'] != null ? this.post.$updatedDate = new Date(String(entry.fields['updatedDate'])) : this.post.$updatedDate = new Date();
             entry.fields['visible'] != null ? this.post.$visible = Boolean(String(entry.fields['visible'])) : this.post.$visible = false;
-
+            if (entry.fields['tags']) {
+              let tags: any = entry.fields['tags'];
+              this.post.$tags = tags;
+            }
             this.updateMetaTags();
             $('#js-preloader').addClass('loaded');
           });
@@ -55,15 +58,19 @@ export class BlogComponent {
   updateMetaTags() {
     this.titleService.setTitle(this.post.$tittle);
     this.metaTagService.addTags([
-      { name: 'keywords', content: 'blog, filosofía,' + this.post.$tags.join(',') },
       { name: 'robots', content: 'index, follow' },
       { name: 'author', content: this.post.$author },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'date', content: this.post.$updatedDate.toISOString(), scheme: 'DD-MM-YYYY' },
       { charset: 'UTF-8' }
     ]);
+
     this.metaTagService.updateTag(
       { name: 'description', content: 'Articulo filosófico - ' + this.post.$tittle }
+    );
+    
+    this.metaTagService.updateTag(
+      { name: 'keywords', content: 'blog, filosofía,' + this.post.$tags.join(', ') },
     );
   }
 
