@@ -57,7 +57,7 @@ export class ContentfulService {
   test() {
     this.client.getEntries({
       content_type: "blogPost",
-      "fields.author": "Javier Lapuente",
+      "fields.authorReference.fields.id": "javier-lapuente",
       "fields.visible": "true"
     }).then(data => console.log(data));
   }
@@ -67,7 +67,8 @@ export class ContentfulService {
       {
         "limit": limit,
         content_type: "blogPost",
-        "fields.author": author,
+        "fields.authorReference.sys.contentType.sys.id": "author",
+        "fields.authorReference.fields.id": author,
         "fields.visible": "true",
         "fields.deleted": "false"
       });

@@ -1,4 +1,5 @@
 import { FeaturedImage } from "./featuredImage";
+import { Post } from "./post";
 
 export class Author {
   constructor(
@@ -9,7 +10,8 @@ export class Author {
     public profileImage: FeaturedImage = new FeaturedImage('', '', ''),
     public location: string = '',
     public birthdate: Date = new Date(),
-    public socialMedia: string[] = []
+    public socialMedia: string[] = [],
+    public entries: Post[] = []
   ) { }
 
   // Optional: Custom getters and setters if additional logic is needed

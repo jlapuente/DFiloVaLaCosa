@@ -63,22 +63,34 @@
                   <ul>
                     <li>{{author.location}}</li>
                     <li>{{author.birthdate | date: 'dd/MM/yyyy' }}</li>
-                    <li>{{author.socialMedia}}</li>
+                    <!-- <li>{{author.socialMedia}}</li> -->
                   </ul>
-                  <ul>
-                    <ng-container *ngIf="author.socialMedia">
-                      <ng-container *ngFor="let sm of author.socialMedia">
-                        <li>{{sm}}</li>
-                      </ng-container>
-                    </ng-container>
+                  <ul *ngIf="author.socialMedia && author.socialMedia.length" class="mt-4">
+                    <li *ngFor="let sm of author.socialMedia">{{sm}}</li>
                   </ul>
                 </ng-container>
               </div>
             </div>
-            <div class="col-lg-8 align-self-right border-box ">
+            <div class="col-lg-8 align-self-right border-box">
               <div class="left-content wow fadeInRight" data-wow-duration="1s" data-wow-delay="1s">
                 <h1 class="content-tittle">Descripción del autor</h1>
                 <p class="content" [innerHTML]="author.description | mdToHtml"></p>
+                <div class="row mt-2">
+                  <ng-container *ngFor="let entry of author.entries; let i = index">
+                    <div class="col-lg-4 d-flex align-items-stretch">
+                      <div class="card mb-4">
+                        <img src="{{entry.featuredImage.image}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{entry.title}}</h5>
+                          <p class="card-text card-text-container">{{entry.summary | truncate:[180, '...'] }}</p>
+                          <div class="main-blue-button">
+                            <a [routerLink]="['/blog', entry.urlHandler]">Leer más</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
               </div>
             </div>
           </div>
@@ -86,22 +98,7 @@
       </div>
     </div>
   </div>
-  <div id="about" class="about-us section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <img src="assets/images/about-left-image.png" alt="person graphic">
-          </div>
-        </div>
-        <div class="col-lg-8 align-self-center">
-          <div class="services">
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  
   <footer>
     <div class="container">
       <div class="row">

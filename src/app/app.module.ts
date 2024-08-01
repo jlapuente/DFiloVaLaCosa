@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogListComponent } from './components/blog-list/blog-list.component';
 import { MdToHtmlPipe } from './integration/pipes/md-to-html.pipe';
 import { ProfileComponent } from './components/profile/profile.component';
+import { TruncatePipe } from './integration/pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     BlogComponent,
     BlogListComponent,
     MdToHtmlPipe,
+    TruncatePipe,
     ProfileComponent
   ],
   imports: [

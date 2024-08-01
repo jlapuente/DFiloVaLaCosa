@@ -9,6 +9,7 @@ import { FeaturedImage } from '../../integration/classes/featuredImage';
 import { ImageService } from 'src/app/integration/services/image.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { Author } from 'src/app/integration/classes/author';
+import { MapUtils } from 'src/app/integration/services/mapUtils';
 declare var $: any;
 
 @Component({
@@ -21,7 +22,7 @@ export class BlogComponent {
   blogPosts$: Observable<any> | undefined;
 
   constructor(private route: ActivatedRoute, private contentfulService: ContentfulService, private imageService: ImageService, private titleService: Title,
-    private metaTagService: Meta) {
+    private metaTagService: Meta, private mapUtils: MapUtils) {
 
   }
 
@@ -34,19 +35,7 @@ export class BlogComponent {
         this.contentfulService.getEntryByUrl(id)
           .subscribe(data => {
             let entry = data.items[0];
-            console.log(entry);
-            entry.fields['tittle'] != null ? this.post.title = String(entry.fields['tittle']) : this.post.title = "";
-            entry.fields['urlHandler'] != null ? this.post.urlHandler = String(entry.fields['urlHandler']) : this.post.urlHandler = "";
-            entry.fields['featuredImage'] != null ? this.post.featuredImage = this.imageService.createImage(entry.fields['featuredImage']) : new FeaturedImage();
-            entry.fields['summary'] != null ? this.post.summary = String(entry.fields['summary']) : this.post.summary = "";
-            entry.fields['content'] != null ? this.post.content = this._returnHtmlFromRichText(entry.fields['content']) : this.post.content = "";
-            entry.fields['authorReference'] != null ? this.post.author = this.createAuthor(entry.fields['authorReference']) : new Author();
-            entry.fields['updatedDate'] != null ? this.post.updatedDate = new Date(String(entry.fields['updatedDate'])) : this.post.updatedDate = new Date();
-            entry.fields['visible'] != null ? this.post.visible = Boolean(String(entry.fields['visible'])) : this.post.visible = false;
-            if (entry.fields['tags']) {
-              let tags: any = entry.fields['tags'];
-              this.post.tags = tags;
-            }
+            this.post = this.mapUtils.mapPost(entry)
             console.log(this.post)
             this.updateMetaTags();
             $('#js-preloader').addClass('loaded');
@@ -72,39 +61,6 @@ export class BlogComponent {
     this.metaTagService.updateTag(
       { name: 'keywords', content: 'blog, filosofía,' + this.post.tags.join(', ') },
     );
-  }
-
-  _returnHtmlFromRichText(richText: any): string {
-    const options: Options = {
-      renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields } } }) =>
-          `<p class='asset-container'>
-          <img class='post-image' src="${fields.file.url}" alt="${fields.title}"
-           height=${fields.file.details.image.height} width=${fields.file.details.image.width}/>
-           <small class='subtext'>${fields.description}</small>
-           </p>`,
-        [BLOCKS.HEADING_1]: (node, next) => (`<h2 class='titulo'> ${next(node.content)} </h2>`),
-        [BLOCKS.HEADING_2]: (node, next) => (`<h3> ${next(node.content)} </h3>`),
-        [BLOCKS.HEADING_3]: (node, next) => (`<h4> ${next(node.content)} </h4>`),
-        [BLOCKS.HEADING_4]: (node, next) => (`<h5> ${next(node.content)} </h5>`),
-        [BLOCKS.HEADING_5]: (node, next) => (`<h6> ${next(node.content)} </h6>`),
-        [BLOCKS.HEADING_6]: (node, next) => (`<h6> ${next(node.content)} </h6>`)
-      }
-    };
-
-    if (richText === undefined || richText === null || richText.nodeType !== 'document') {
-      return '<p>Error</p>';
-    }
-    return documentToHtmlString(richText, options);
-  }
-
-  createAuthor(entry: any): Author {
-    console.log(entry);
-    let field = entry.fields;
-    let author: Author = new Author(field.name, field.id, field.pronouns, field.description, this.imageService.createImage(field.profileImage), field.location, field.birthdate, field.socialMedia);
-    console.log(author);
-    return author
-
   }
 
 }
