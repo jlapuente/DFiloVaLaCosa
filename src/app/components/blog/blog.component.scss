@@ -238,3 +238,165 @@ h1.post-tittle{
   font-size: 1.25rem;
   font-weight: 600;
 }
+
+.left-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.author-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.author-photo {
+  width: 50px;
+  height: 50px;
+}
+
+.chip {
+  margin: 5px;
+}
+
+.post-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.left-content {
+  width: 100%;
+}
+
+.left-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+}
+
+.author-photo {
+  width: 50px;
+  height: 50px;
+}
+
+.chip {
+  margin: 5px;
+}
+
+.post-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.left-content {
+  width: 100%;
+}
+
+.content-container {
+  max-width: 700px;
+  /* Ajusta este valor según sea necesario */
+  margin: 0 auto;
+  /* Centra el contenedor */
+  text-align: left;
+  /* Asegura que el texto esté alineado a la izquierda */
+}
+
+.left-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+}
+
+.author-photo {
+  width: 50px;
+  height: 50px;
+}
+
+.chip {
+  margin: 5px;
+}
+
+.post-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.header-text {
+  width: 100%;
+}
+
+.content {
+  margin: 0 auto;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+}
+
+.author-photo {
+  width: 50px;
+  height: 50px;
+}
+
+.chip {
+  margin: 5px;
+}
+
+.post-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+figcaption {
+  font-size: small;
+}
