@@ -43,45 +43,41 @@
   </header>
   <!-- ***** Header Area End ***** -->
 
-<div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-  <div class="container">
-    <h1 class="post-title">{{post.title}}</h1>
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-          <div class="content text-center">
-            <figure>
-              <img [src]="post.featuredImage.image" [alt]="post.featuredImage.title" class="img-fluid">
-              <figcaption>{{post.featuredImage.title}} - {{post.featuredImage.description}} </figcaption>
-            </figure>
-            <div class="row mt-3">
-              <div class="col-lg-6 d-flex">
-                <img [src]="post.author.profileImage.image" class="author-photo rounded-circle"
-                  alt="{{ post.author.name }}">
-                <div class="author-info ms-3">
-                  <h5 class="author-name mb-0">{{ post.author.name }}</h5>
-                  <p class="author">{{post.updatedDate | date : 'dd/MM/yyyy' }}</p>
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <h1 class="post-title">{{post.title}}</h1>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+            <div class="content text-center">
+              <figure>
+                <img [src]="post.featuredImage.image" [alt]="post.featuredImage.title" class="img-fluid">
+                <figcaption>{{post.featuredImage.title}} - {{post.featuredImage.description}} </figcaption>
+              </figure>
+              <div class="row mt-4">
+                <div id="author-container" class="col-12 col-md-6 col-lg-6 d-flex">
+                  <img [src]="post.author.profileImage.image" class="author-photo rounded-circle"
+                    alt="{{ post.author.name }}">
+                  <div class="author-info ms-3">
+                    <h5 class="author-name mb-0">{{ post.author.name }}</h5>
+                    <p class="author">{{post.updatedDate | date : 'dd/MM/yyyy' }}</p>
+                  </div>
+                </div>
+                <div id="chips-container" class="col-12 col-md-6 col-lg-6 d-flex tags">
+                  <ng-container *ngFor="let tag of post.tags">
+                    <div class="chip wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+                      {{tag}}
+                    </div>
+                  </ng-container>
                 </div>
               </div>
-              <div class="col-lg-6 d-flex tags">
-                <ng-container *ngFor="let tag of post.tags">
-                  <div class="chip wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
-                    {{tag}}
-                  </div>
-                </ng-container>
-              </div>
+              <p class="mt-4" [innerHTML]="post.content | mdToHtml"></p>
             </div>
-            <p class="mt-3" [innerHTML]="post.content | mdToHtml"></p>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
-
-
 
   <div id="about" class="about-us section">
     <div class="container">
@@ -89,11 +85,6 @@
         <div class="col-lg-4">
           <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
             <img src="assets/images/about-left-image.png" alt="person graphic">
-          </div>
-        </div>
-        <div class="col-lg-8 align-self-center">
-          <div class="services">
-
           </div>
         </div>
       </div>

@@ -61,18 +61,22 @@ h1.post-title {
 
 .chip {
   display: inline-block;
-  padding: 0 25px;
-  height: 32px;
-  font-size: 16px;
-  line-height: 32px;
-  border-radius: 25px;
+  padding: 0 1.5625em;
+  height: 2em;
+  font-size: 1em;
+  line-height: 2em;
+  border-radius: 1.5625em;
   background-color: var(--red-color);
-  margin: 5px;
+  margin: 0.3125em;
   color: white;
   transition: background-color 0.3s;
 
   &:hover {
     background-color: var(--blue-color);
+  }
+
+  i {
+    margin-right: 0.5em;
   }
 }
 
@@ -87,7 +91,7 @@ h1.post-title {
 }
 
 .author-name {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -104,6 +108,7 @@ h1.post-title {
 
 figcaption {
   font-size: small;
+  margin-top: 1%;
 }
 
 /* Header Text Centering */
@@ -129,8 +134,20 @@ figcaption {
     margin-top: 0px;
   }
 
+  .author-info {
+    text-align: center;
+  }
+  .author {
+    text-align: center;
+  }
+
+  .tags {
+    justify-content: center;
+  }
+
   .about-us {
-    position: relative;
+    position: none;
+    display: none;
     background-image: none;
     padding: 0px;
 
@@ -148,6 +165,7 @@ figcaption {
 
   footer p {
     margin: 15px 0px 30px 0px;
+    text-align: center;
   }
 
   p {
@@ -160,5 +178,32 @@ figcaption {
 @media (max-width: 767px) {
   .about-us .left-image {
     bottom: -400px;
+  }
+}
+
+#author-container,
+#chips-container {
+  @media (max-width: 767px) {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    .author-photo {
+      margin-bottom: 1rem;
+    }
+
+    .author-info {
+      text-align: center;
+      margin-left: 0;
+    }
+
+    .chip {
+      padding: 0 1em;
+      height: 1.5em;
+      line-height: 1.5em;
+      font-size: 0.875em;
+      border-radius: 1em;
+    }
   }
 }
