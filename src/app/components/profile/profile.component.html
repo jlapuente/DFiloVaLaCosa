@@ -51,23 +51,23 @@
             <div class="col-lg-4 align-self-left">
               <div class="left-content wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <ng-container *ngIf="author">
-                  <img class="avatar" [src]="author.$profileImage.$image" [alt]="author.$profileImage.$title">
+                  <img class="avatar" [src]="author.profileImage.image" [alt]="author.profileImage.title">
                   <div class="profile-container">
                     <h1 class="author-name">
-                      {{author.$name}}
+                      {{author.name}}
                     </h1>
                     <span class="author-data">
-                      <h2>{{author.$id}}</h2> · <h2>{{author.$pronouns}}</h2>
+                      <h2>{{author.id}}</h2> · <h2>{{author.pronouns}}</h2>
                     </span>
                   </div>
                   <ul>
-                    <li>{{author.$location}}</li>
-                    <li>{{author.$birthdate | date: 'dd/MM/yyyy' }}</li>
-                    <li>{{author.$socialMedia}}</li>
+                    <li>{{author.location}}</li>
+                    <li>{{author.birthdate | date: 'dd/MM/yyyy' }}</li>
+                    <li>{{author.socialMedia}}</li>
                   </ul>
                   <ul>
-                    <ng-container *ngIf="author.$socialMedia">
-                      <ng-container *ngFor="let sm of author.$socialMedia">
+                    <ng-container *ngIf="author.socialMedia">
+                      <ng-container *ngFor="let sm of author.socialMedia">
                         <li>{{sm}}</li>
                       </ng-container>
                     </ng-container>
@@ -78,7 +78,7 @@
             <div class="col-lg-8 align-self-right border-box ">
               <div class="left-content wow fadeInRight" data-wow-duration="1s" data-wow-delay="1s">
                 <h1 class="content-tittle">Descripción del autor</h1>
-                <p class="content" [innerHTML]="author.$description | mdToHtml"></p>
+                <p class="content" [innerHTML]="author.description | mdToHtml"></p>
               </div>
             </div>
           </div>

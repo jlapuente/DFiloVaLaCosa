@@ -5,8 +5,8 @@ import { Author } from '../../integration/classes/author';
 import { FeaturedImage } from '../../integration/classes/featuredImage';
 import { AuthorService } from '../../integration/services/author.service';
 import { ImageService } from '../../integration/services/image.service';
-import { Options } from '@popperjs/core';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { ContentfulService } from 'src/app/integration/services/contentful.service';
 declare var $: any;
 
 @Component({
@@ -18,7 +18,7 @@ export class ProfileComponent {
 
   author$: Observable<any> | undefined;
   author: Author = new Author('', '', '', '', new FeaturedImage('', '', ''), '', new Date(), []);
-  constructor(private route: ActivatedRoute, private authorService: AuthorService, private imageService: ImageService) {
+  constructor(private route: ActivatedRoute, private authorService: AuthorService, private contentfulService: ContentfulService, private imageService: ImageService) {
     console.log(route);
   }
 
@@ -32,16 +32,23 @@ export class ProfileComponent {
           console.log(data)
           let entry = data.items[0];
           console.log(entry);
-          entry.fields['name'] != null ? this.author.$name = String(entry.fields['name']) : this.author.$name = "";
-          entry.fields['location'] != null ? this.author.$location = String(entry.fields['location']) : this.author.$location = "";
-          entry.fields['profileImage'] != null ? this.author.$profileImage = this.imageService.createImage(entry.fields['profileImage']) : new FeaturedImage('', '', '',);
-          entry.fields['id'] != null ? this.author.$id = String(entry.fields['id']) : this.author.$id = "";
-          entry.fields['description'] != null ? this.author.$description = this._returnHtmlFromRichText(entry.fields['description']) : this.author.$description = "";
-          entry.fields['birthdate'] != null ? this.author.$birthdate = new Date(String(entry.fields['birthdate'])) : this.author.$birthdate = new Date();
-          entry.fields['pronouns'] != null ? this.author.$pronouns = String(entry.fields['pronouns']) : this.author.$pronouns = "";
+          if(entry == undefined) return;
+          const assignValue = (field: any, defaultValue: any) => field != null ? field : defaultValue;
+
+          this.author.name = String(assignValue(entry.fields['name'], ""));
+          this.author.location = String(assignValue(entry.fields['location'], ""));
+          this.author.profileImage = assignValue(this.imageService.createImage(entry.fields['profileImage']), new FeaturedImage('', '', '',));
+          this.author.id = String(assignValue(entry.fields['id'], ""));
+          this.author.description = assignValue(this._returnHtmlFromRichText(entry.fields['description']), "");
+          this.author.birthdate = new Date(String(assignValue(entry.fields['birthdate'], new Date())));
+          this.author.pronouns = String(assignValue(entry.fields['pronouns'], ""));
+
           let socialMedia: any = entry.fields['socialMedia']
-          this.author.$socialMedia.push(socialMedia);
+          this.author.socialMedia.push(socialMedia);
           console.log(entry);
+
+          let entries: any = this.contentfulService.getEntriesByAuthor(3, this.author.name);
+          console.log(entries)
           $('#js-preloader').addClass('loaded');
         })
       })

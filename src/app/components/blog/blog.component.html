@@ -50,10 +50,21 @@
           <div class="row justify-content-center">
             <div class="col-lg-8 d-flex justify-content-center align-items-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <img [src]="post.$featuredImage.$image" [alt]="post.$featuredImage.$title">
-                <h1 class="post-tittle">{{post.$tittle}}</h1>
-                <p class="author">{{post.$author}} - {{post.$updatedDate | date : 'dd/MM/yyyy' }}</p>
-                <p class="content" [innerHTML]="post.$content | mdToHtml"></p>
+                <img [src]="post.featuredImage.image" [alt]="post.featuredImage.title">
+                <h1 class="post-tittle">{{post.title}}</h1>
+                <ng-container *ngFor="let tag of post.tags">
+                  <div class="chip wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+                    {{tag}}
+                  </div>
+                </ng-container>
+                <div class="author-card d-flex align-items-center">
+                  <img [src]="post.author.profileImage.image" class="author-photo rounded-circle" alt="{{ post.author.name }}">
+                  <div class="author-info ms-3">
+                    <h5 class="author-name mb-0">{{ post.author.name }}</h5>
+                    <p class="author">{{post.updatedDate | date : 'dd/MM/yyyy' }}</p>
+                  </div>
+                </div>
+                <p class="content" [innerHTML]="post.content | mdToHtml"></p>
               </div>
             </div>
           </div>

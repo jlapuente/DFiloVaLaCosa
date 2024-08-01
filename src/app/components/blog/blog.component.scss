@@ -194,3 +194,47 @@ h1.post-tittle{
 .content {
   max-width: 65ch;
 }
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 32px;
+  font-size: 16px;
+  line-height: 32px;
+  border-radius: 25px;
+  background-color: var(--red-color);
+  margin: 5px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.chip:hover {
+  background-color: var(--blue-color);
+}
+
+.chip i {
+  margin-right: 8px;
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.author-photo {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.author-info {
+  margin-left: 15px;
+}
+
+.author-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}

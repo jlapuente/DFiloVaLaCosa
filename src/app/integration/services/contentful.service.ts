@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { createClient, Entry } from 'contentful';
+import { createClient } from 'contentful';
 import { environment } from '../../environments/environment';
 import { from } from 'rxjs';
-import { FeaturedImage } from '../classes/featuredImage';
 import { Constants } from '../constants';
 
 @Injectable({
@@ -61,6 +60,18 @@ export class ContentfulService {
       "fields.author": "Javier Lapuente",
       "fields.visible": "true"
     }).then(data => console.log(data));
+  }
+
+  getEntriesByAuthor(limit: number, author: string) {
+    const promise = this.client.getEntries(
+      {
+        "limit": limit,
+        content_type: "blogPost",
+        "fields.author": author,
+        "fields.visible": "true",
+        "fields.deleted": "false"
+      });
+    return from(promise);
   }
 
 }

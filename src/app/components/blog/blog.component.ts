@@ -8,6 +8,7 @@ import { Post } from '../../integration/classes/post';
 import { FeaturedImage } from '../../integration/classes/featuredImage';
 import { ImageService } from 'src/app/integration/services/image.service';
 import { Meta, Title } from '@angular/platform-browser';
+import { Author } from 'src/app/integration/classes/author';
 declare var $: any;
 
 @Component({
@@ -24,10 +25,9 @@ export class BlogComponent {
 
   }
 
-  post: Post = new Post('', '', new FeaturedImage('', '', ''), '', '', '', new Date(), false);
+  post: Post = new Post('', '', new FeaturedImage(), '', '', new Author(), new Date(), false);
 
   ngOnInit(): void {
-    // this.contentfulService.test();
     this.route.params.subscribe(
       params => {
         const id = params['id'];
@@ -35,19 +35,19 @@ export class BlogComponent {
           .subscribe(data => {
             let entry = data.items[0];
             console.log(entry);
-            console.log(entry.fields['content']);
-            entry.fields['tittle'] != null ? this.post.$tittle = String(entry.fields['tittle']) : this.post.$tittle = "";
-            entry.fields['urlHandler'] != null ? this.post.$urlHandler = String(entry.fields['urlHandler']) : this.post.$urlHandler = "";
-            entry.fields['featuredImage'] != null ? this.post.$featuredImage = this.imageService.createImage(entry.fields['featuredImage']) : new FeaturedImage('', '', '',);
-            entry.fields['summary'] != null ? this.post.$summary = String(entry.fields['summary']) : this.post.$summary = "";
-            entry.fields['content'] != null ? this.post.$content = this._returnHtmlFromRichText(entry.fields['content']) : this.post.$content = "";
-            entry.fields['author'] != null ? this.post.$author = String(entry.fields['author']) : this.post.$author = "";
-            entry.fields['updatedDate'] != null ? this.post.$updatedDate = new Date(String(entry.fields['updatedDate'])) : this.post.$updatedDate = new Date();
-            entry.fields['visible'] != null ? this.post.$visible = Boolean(String(entry.fields['visible'])) : this.post.$visible = false;
+            entry.fields['tittle'] != null ? this.post.title = String(entry.fields['tittle']) : this.post.title = "";
+            entry.fields['urlHandler'] != null ? this.post.urlHandler = String(entry.fields['urlHandler']) : this.post.urlHandler = "";
+            entry.fields['featuredImage'] != null ? this.post.featuredImage = this.imageService.createImage(entry.fields['featuredImage']) : new FeaturedImage();
+            entry.fields['summary'] != null ? this.post.summary = String(entry.fields['summary']) : this.post.summary = "";
+            entry.fields['content'] != null ? this.post.content = this._returnHtmlFromRichText(entry.fields['content']) : this.post.content = "";
+            entry.fields['authorReference'] != null ? this.post.author = this.createAuthor(entry.fields['authorReference']) : new Author();
+            entry.fields['updatedDate'] != null ? this.post.updatedDate = new Date(String(entry.fields['updatedDate'])) : this.post.updatedDate = new Date();
+            entry.fields['visible'] != null ? this.post.visible = Boolean(String(entry.fields['visible'])) : this.post.visible = false;
             if (entry.fields['tags']) {
               let tags: any = entry.fields['tags'];
-              this.post.$tags = tags;
+              this.post.tags = tags;
             }
+            console.log(this.post)
             this.updateMetaTags();
             $('#js-preloader').addClass('loaded');
           });
@@ -56,21 +56,21 @@ export class BlogComponent {
   }
 
   updateMetaTags() {
-    this.titleService.setTitle(this.post.$tittle);
+    this.titleService.setTitle(this.post.title);
     this.metaTagService.addTags([
       { name: 'robots', content: 'index, follow' },
-      { name: 'author', content: this.post.$author },
+      { name: 'author', content: this.post.author.name },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'date', content: this.post.$updatedDate.toISOString(), scheme: 'DD-MM-YYYY' },
+      { name: 'date', content: this.post.updatedDate.toISOString(), scheme: 'DD-MM-YYYY' },
       { charset: 'UTF-8' }
     ]);
 
     this.metaTagService.updateTag(
-      { name: 'description', content: 'Articulo filosófico - ' + this.post.$tittle }
+      { name: 'description', content: 'Articulo filosófico - ' + this.post.title }
     );
-    
+
     this.metaTagService.updateTag(
-      { name: 'keywords', content: 'blog, filosofía,' + this.post.$tags.join(', ') },
+      { name: 'keywords', content: 'blog, filosofía,' + this.post.tags.join(', ') },
     );
   }
 
@@ -96,6 +96,15 @@ export class BlogComponent {
       return '<p>Error</p>';
     }
     return documentToHtmlString(richText, options);
+  }
+
+  createAuthor(entry: any): Author {
+    console.log(entry);
+    let field = entry.fields;
+    let author: Author = new Author(field.name, field.id, field.pronouns, field.description, this.imageService.createImage(field.profileImage), field.location, field.birthdate, field.socialMedia);
+    console.log(author);
+    return author
+
   }
 
 }

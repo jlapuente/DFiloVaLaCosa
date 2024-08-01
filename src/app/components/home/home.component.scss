@@ -54,7 +54,7 @@ Banner Style
 .main-banner .left-content h3 {
   text-transform: uppercase;
   font-size: 18px;
-  color: #fe3f40;
+  color: var(--red-color);
   margin-bottom: 15px;
 }
 
@@ -66,12 +66,12 @@ Banner Style
 }
 
 .main-banner .left-content h1 em {
-  color: #03a4ed;
+  color: var(--blue-color);
   font-style: normal;
 }
 
 .main-banner .left-content h1 span {
-  color: #fe3f40;
+  color: var(--red-color);
 }
 
 .main-banner .left-content p {
@@ -93,7 +93,7 @@ Banner Style
   background-color: #fff;
   font-size: 15px;
   font-weight: 500;
-  color: #fe3f40;
+  color: var(--red-color);
   text-transform: capitalize;
   padding: 12px 25px;
   border-radius: 23px;
@@ -105,7 +105,7 @@ Banner Style
 .main-banner .left-content form input {
   width: 470px;
   height: 66px;
-  background-color: #03a4ed;
+  background-color: var(--blue-color);
   border-radius: 33px;
   border: none;
   outline: none;
