@@ -1,15 +1,13 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContentfulService } from '../../integration/services/contentful.service';
-import { Observable, from } from 'rxjs';
-import { Options, documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { BLOCKS, Block } from '@contentful/rich-text-types';
+import { Observable } from 'rxjs';
 import { Post } from '../../integration/classes/post';
 import { FeaturedImage } from '../../integration/classes/featuredImage';
-import { ImageService } from 'src/app/integration/services/image.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { Author } from 'src/app/integration/classes/author';
 import { MapUtils } from 'src/app/integration/services/mapUtils';
+import { TruncatePipe } from 'src/app/integration/pipes/truncate.pipe';
 declare var $: any;
 
 @Component({
@@ -21,13 +19,12 @@ export class BlogComponent {
 
   blogPosts$: Observable<any> | undefined;
 
-  constructor(private route: ActivatedRoute, private contentfulService: ContentfulService, private imageService: ImageService, private titleService: Title,
+  constructor(private route: ActivatedRoute, private contentfulService: ContentfulService, private truncatePipe: TruncatePipe, private titleService: Title,
     private metaTagService: Meta, private mapUtils: MapUtils) {
 
   }
 
   post: Post = new Post('', '', new FeaturedImage(), '', '', new Author(), new Date(), false);
-
   ngOnInit(): void {
     this.route.params.subscribe(
       params => {
@@ -45,6 +42,7 @@ export class BlogComponent {
   }
 
   updateMetaTags() {
+    const truncateParams = [180, '...'];
     this.titleService.setTitle(this.post.title);
     this.metaTagService.addTags([
       { name: 'robots', content: 'index, follow' },
@@ -63,24 +61,19 @@ export class BlogComponent {
     );
 
     this.metaTagService.updateTag(
-      { name: 'twitter:description', content: this.post.summary },
-    );
-    this.metaTagService.updateTag(
-      { name: 'twitter:image', content: this.post.featuredImage.image },
+      { name: 'twitter:description', content: this.truncatePipe.transform(this.post.summary, truncateParams) },
     );
     this.metaTagService.updateTag(
       { name: 'twitter:title', content: this.post.title },
     );
 
     this.metaTagService.updateTag(
-      { property: 'og:description', content: this.post.summary },
-    );
-    this.metaTagService.updateTag(
-      { property: 'og:image', content: this.post.featuredImage.image },
+      { property: 'og:description', content: this.truncatePipe.transform(this.post.summary, truncateParams) },
     );
     this.metaTagService.updateTag(
       { property: 'og:title', content: this.post.title },
     );
+
   }
 
 }
