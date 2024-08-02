@@ -59,7 +59,7 @@
                   <img [src]="post.author.profileImage.image" class="author-photo rounded-circle"
                     alt="{{ post.author.name }}">
                   <div class="author-info ms-3">
-                    <h5 class="author-name mb-0">{{ post.author.name }}</h5>
+                    <a [routerLink]="['/profile', post.author.id]"><h5 class="author-name mb-0">{{ post.author.name }}</h5></a>
                     <p class="author">{{post.updatedDate | date : 'dd/MM/yyyy' }}</p>
                   </div>
                 </div>

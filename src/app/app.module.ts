@@ -10,6 +10,7 @@ import { BlogListComponent } from './components/blog-list/blog-list.component';
 import { MdToHtmlPipe } from './integration/pipes/md-to-html.pipe';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TruncatePipe } from './integration/pipes/truncate.pipe';
+import { SocialIconDirective } from './integration/directives/social-icon.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TruncatePipe } from './integration/pipes/truncate.pipe';
     BlogListComponent,
     MdToHtmlPipe,
     TruncatePipe,
-    ProfileComponent
+    ProfileComponent,
+    SocialIconDirective
   ],
   imports: [
     BrowserModule,

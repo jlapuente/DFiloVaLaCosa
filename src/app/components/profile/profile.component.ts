@@ -36,4 +36,20 @@ export class ProfileComponent {
       })
   }
 
+  getDisplayName(url: string): string {
+    const decodedUrl = decodeURIComponent(url);
+
+    if (decodedUrl.includes('twitter.com')) {
+      const twitterUsername = decodedUrl.split('twitter.com/')[1];
+      return `@${twitterUsername}`;
+    } else if (decodedUrl.includes('linkedin.com/in/')) {
+      const linkedinProfile = decodedUrl.split('linkedin.com/in/')[1];
+      return linkedinProfile ? linkedinProfile.replace('/', '') : decodedUrl;
+    } else if (decodedUrl.includes('instagram.com/')) {
+      const instagramUsername = decodedUrl.split('instagram.com/')[1];
+      return instagramUsername ? `@${instagramUsername.split('/')[0]}` : decodedUrl;
+    }
+    return decodedUrl;
+  }
+
 }

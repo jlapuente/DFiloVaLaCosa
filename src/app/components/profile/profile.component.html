@@ -66,7 +66,7 @@
                     <!-- <li>{{author.socialMedia}}</li> -->
                   </ul>
                   <ul *ngIf="author.socialMedia && author.socialMedia.length" class="mt-4">
-                    <li *ngFor="let sm of author.socialMedia">{{sm}}</li>
+                    <li *ngFor="let sm of author.socialMedia"> <a [href]="sm" appSocialIcon class="link-primary text-decoration-none">{{getDisplayName(sm)}}</a></li>
                   </ul>
                 </ng-container>
               </div>
