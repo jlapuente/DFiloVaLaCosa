@@ -61,6 +61,26 @@ export class BlogComponent {
     this.metaTagService.updateTag(
       { name: 'keywords', content: 'blog, filosofía,' + this.post.tags.join(', ') },
     );
+
+    this.metaTagService.updateTag(
+      { name: 'twitter:description', content: this.post.summary },
+    );
+    this.metaTagService.updateTag(
+      { name: 'twitter:image', content: this.post.featuredImage.image },
+    );
+    this.metaTagService.updateTag(
+      { name: 'twitter:title', content: this.post.title },
+    );
+
+    this.metaTagService.updateTag(
+      { property: 'og:description', content: this.post.summary },
+    );
+    this.metaTagService.updateTag(
+      { property: 'og:image', content: this.post.featuredImage.image },
+    );
+    this.metaTagService.updateTag(
+      { property: 'og:title', content: this.post.title },
+    );
   }
 
 }
