@@ -29,7 +29,7 @@ import { SocialIconDirective } from './integration/directives/social-icon.direct
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [TruncatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
