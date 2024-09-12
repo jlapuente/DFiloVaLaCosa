@@ -1,17 +1,19 @@
 import { Pipe, PipeTransform } from '@angular/core';
-// import marked from 'marked';
-import * as marked from 'marked';
+import { marked } from 'marked';
 
 @Pipe({
   name: 'mdToHtml'
 })
 export class MdToHtmlPipe implements PipeTransform {
 
-  transform(value: any): any {
+  transform(value: string): any {
     if (value && value.length > 0) {
-      return marked.marked(value);
+      marked.setOptions({
+        gfm: true,        // Habilita GitHub Flavored Markdown
+        breaks: true      // Convierte saltos de línea en <br>
+      });
+      return marked(value);
     }
     return value;
   }
-
 }

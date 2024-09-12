@@ -111,7 +111,14 @@ export class MapUtils {
         [BLOCKS.HEADING_3]: (node, next) => (`<h4> ${next(node.content)} </h4>`),
         [BLOCKS.HEADING_4]: (node, next) => (`<h5> ${next(node.content)} </h5>`),
         [BLOCKS.HEADING_5]: (node, next) => (`<h6> ${next(node.content)} </h6>`),
-        [BLOCKS.HEADING_6]: (node, next) => (`<h6> ${next(node.content)} </h6>`)
+        [BLOCKS.HEADING_6]: (node, next) => (`<h6> ${next(node.content)} </h6>`),
+        [BLOCKS.PARAGRAPH]: (node, next) => {
+          const content = next(node.content).trim();
+          if (!content || content === '') {
+            return '<p><br></p>';  // Si está vacío, inserta un <br> o un párrafo vacío
+          }
+          return `<p>${content}</p>`;
+        },
       }
     };
 
