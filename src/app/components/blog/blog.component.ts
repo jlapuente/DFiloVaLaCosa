@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContentfulService } from '../../integration/services/contentful.service';
 import { Observable } from 'rxjs';
 import { Post } from '../../integration/classes/post';
@@ -8,6 +8,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Author } from 'src/app/integration/classes/author';
 import { MapUtils } from 'src/app/integration/services/mapUtils';
 import { TruncatePipe } from 'src/app/integration/pipes/truncate.pipe';
+import { NavBarActions } from 'src/app/integration/classes/navbar_actions';
 declare var $: any;
 
 @Component({
@@ -16,8 +17,26 @@ declare var $: any;
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent {
-
+  private router = inject(Router);
   blogPosts$: Observable<any> | undefined;
+   actions: NavBarActions[] = [
+      {
+        name: 'Home',
+        alt: 'Go to home page',
+        action: () => {
+          this.router.navigate(['/home']);
+        },
+        isActive: false
+      },
+      {
+        name: 'Posts',
+        alt: 'Go to the post list',
+        action: () => {
+          this.router.navigate(['/blogs']);
+        },
+        isActive: true
+      },
+    ]
 
   constructor(private route: ActivatedRoute, private contentfulService: ContentfulService, private truncatePipe: TruncatePipe, private titleService: Title,
     private metaTagService: Meta, private mapUtils: MapUtils) {

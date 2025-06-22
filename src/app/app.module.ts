@@ -11,6 +11,8 @@ import { MdToHtmlPipe } from './integration/pipes/md-to-html.pipe';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TruncatePipe } from './integration/pipes/truncate.pipe';
 import { SocialIconDirective } from './integration/directives/social-icon.directive';
+import { NavbarComponent } from './lib/navbar/navbar.component';
+import { PreloaderComponent } from './lib/preloader/preloader.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SocialIconDirective } from './integration/directives/social-icon.direct
     MdToHtmlPipe,
     TruncatePipe,
     ProfileComponent,
-    SocialIconDirective
+    SocialIconDirective,
+    NavbarComponent,
+    PreloaderComponent
   ],
   imports: [
     BrowserModule,

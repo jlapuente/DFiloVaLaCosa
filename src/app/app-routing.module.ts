@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { BlogListComponent } from './components/blog-list/blog-list.component';
 
 const routes: Routes = [
   // {
@@ -20,9 +21,14 @@ const routes: Routes = [
     title: 'De Filo Va La Cosa'
   },
   {
-    path: 'blog/:id',
+    path: 'blogs/:id',
     component: BlogComponent,
     title: 'Post'
+  },
+  {
+    path: 'blogs',
+    component: BlogListComponent,
+    title: 'Post publicados'
   },
   {
     path: 'profile/:id',

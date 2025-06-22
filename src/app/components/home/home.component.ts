@@ -6,6 +6,7 @@ import { Mail } from '../../integration/classes/mail';
 import { EmailJSResponseStatus } from '@emailjs/browser';
 import { ViewportScroller } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavBarActions } from 'src/app/integration/classes/navbar_actions';
 declare var $: any;
 
 @Component({
@@ -14,6 +15,43 @@ declare var $: any;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+  actions: NavBarActions[] = [
+    {
+      name: 'Home',
+      alt: 'Go to home page',
+      action: () => {
+        this.scrollTo("top");
+      },
+      isActive: true
+    },
+    {
+      name: 'About',
+      alt: 'Go to profile page',
+      action: () => {
+        this.scrollTo("about");
+      },
+      isActive: false
+    },
+    {
+      name: 'Blog',
+      alt: 'Go to blog page',
+      action: () => {
+        this.scrollTo("blog");
+      },
+      isActive: false
+    },
+    {
+      name: 'Contact',
+      alt: 'Go to contact page',
+      action: () => {
+        this.scrollTo("contact");
+      },
+      isActive: false,
+      class: 'main-red-button last-child',
+      isLastItem: true
+    }
+  ]
 
   constructor(private contentfulService: ContentfulService, private mailService: EmailService, private viewPortScroller: ViewportScroller) { }
 
@@ -65,10 +103,6 @@ export class HomeComponent {
     }
   }
 
-  scrollTo(id: string) {
-    this.viewPortScroller.scrollToAnchor(id);
-  }
-
   loading(on: boolean) {
     on ? $('#js-preloader').addClass('loaded') : $('#js-preloader').removeClass('loaded');
   }
@@ -76,6 +110,11 @@ export class HomeComponent {
   checkMail(): boolean {
     // console.log(Object.values(this.mail).every(x => x === null || x === ''));
     return Object.values(this.mail).every(x => x === null || x === '');
+  }
+
+  scrollTo(id: string) {
+    console.log(id);
+    this.viewPortScroller.scrollToAnchor(id);
   }
 
 }

@@ -1,47 +1,7 @@
 <body>
+  <app-preloader></app-preloader>
 
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a [routerLink]="['/']" class="logo">
-              <h4>D<span>Filo</span>Va</h4>
-            </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section"><a [routerLink]="['/']">Home</a></li>
-              <li class="scroll-to-section"><a href="#blog" class="active">Posts</a></li>
-              <li class="scroll-to-section">
-                <div class="main-red-button"><a href="#contact">Contact Now</a></div>
-              </li>
-            </ul>
-            <a class='menu-trigger'>
-              <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
+  <app-navbar [actions]="actions"></app-navbar>
 
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
@@ -84,7 +44,7 @@
                           <h5 class="card-title">{{entry.title}}</h5>
                           <p class="card-text card-text-container">{{entry.summary | truncate:[180, '...'] }}</p>
                           <div class="main-blue-button">
-                            <a [routerLink]="['/blog', entry.urlHandler]">Leer más</a>
+                            <a [routerLink]="['/blogs', entry.urlHandler]">Leer más</a>
                           </div>
                         </div>
                       </div>
@@ -98,7 +58,7 @@
       </div>
     </div>
   </div>
-  
+
   <footer>
     <div class="container">
       <div class="row">
