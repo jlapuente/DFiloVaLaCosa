@@ -1,4 +1,4 @@
-/* 
+/*
 
 TemplateMo 562 Space Dynamic
 
@@ -23,16 +23,16 @@ Table of contents
 12. portfolio
 
 --------------------------------------------- */
-/* 
+/*
 ---------------------------------------------
 font & reset css
---------------------------------------------- 
+---------------------------------------------
 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-/* 
+/*
 ---------------------------------------------
 reset
---------------------------------------------- 
+---------------------------------------------
 */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
@@ -135,10 +135,10 @@ img {
   overflow: hidden;
 }
 
-/* 
+/*
 ---------------------------------------------
 global styles
---------------------------------------------- 
+---------------------------------------------
 */
 html,
 body {
@@ -208,7 +208,7 @@ body {
   letter-spacing: 0.25px;
 }
 
-.main-red-button a {
+a.main-red-button{
   display: inline-block;
   background-color: #fe3f40;
   font-size: 15px;
@@ -232,10 +232,10 @@ body {
   letter-spacing: 0.25px;
 }
 
-/* 
+/*
 ---------------------------------------------
 header
---------------------------------------------- 
+---------------------------------------------
 */
 
 .background-header {
@@ -337,20 +337,20 @@ header
   padding-right: 20px;
 }
 
-.header-area .main-nav .nav li:last-child {
+.header-area .main-nav .nav li.last-child {
   padding-right: 0px;
   padding-left: 40px;
 }
 
-.header-area .main-nav .nav li:last-child a ,
-.background-header .main-nav .nav li:last-child a {
+.header-area .main-nav .nav li.last-child a ,
+.background-header .main-nav .nav li.last-child a {
   color: #fff !important;
   padding: 0px 20px;
   font-weight: 400;
 }
 
-.header-area .main-nav .nav li:last-child a:hover,
-.header-area .main-nav .nav li:last-child a.active {
+.header-area .main-nav .nav li.last-child a:hover,
+.header-area .main-nav .nav li.last-child a.active {
   color: #fff !important;
 }
 
@@ -385,8 +385,8 @@ header
   opacity: 1;
 }
 
-.header-area .main-nav .nav li:last-child a:hover ,
-.background-header .main-nav .nav li:last-child a:hover {
+.header-area .main-nav .nav li.last-child a:hover ,
+.background-header .main-nav .nav li.last-child a:hover {
   background-color: #03a4ed;
 }
 
@@ -602,8 +602,8 @@ header
 }
 
 @media (max-width: 992px) {
-  .header-area .main-nav .nav li:last-child  ,
-  .background-header .main-nav .nav li:last-child {
+  .header-area .main-nav .nav li.last-child  ,
+  .background-header .main-nav .nav li.last-child {
     display: none;
   }
   .header-area .main-nav .nav li:nth-child(6),
@@ -723,10 +723,10 @@ header
   }
 }
 
-/* 
+/*
 ---------------------------------------------
 preloader
---------------------------------------------- 
+---------------------------------------------
 */
 
 .js-preloader {
@@ -823,10 +823,10 @@ preloader
     border-radius: 50%;
 }
 
-/* 
+/*
 ---------------------------------------------
 About Us Style
---------------------------------------------- 
+---------------------------------------------
 */
 
 #about {
@@ -870,10 +870,10 @@ About Us Style
 }
 
 
-/* 
+/*
 ---------------------------------------------
 Services Style
---------------------------------------------- 
+---------------------------------------------
 */
 
 .our-services {
@@ -959,10 +959,10 @@ Services Style
 }
 
 
-/* 
+/*
 ---------------------------------------------
 Portfolio
---------------------------------------------- 
+---------------------------------------------
 */
 
 .our-portfolio {
@@ -1048,10 +1048,10 @@ Portfolio
 }
 
 
-/* 
+/*
 ---------------------------------------------
 Blog
---------------------------------------------- 
+---------------------------------------------
 */
 
 .our-blog {
@@ -1104,7 +1104,7 @@ Blog
   margin-right: 20px;
 }
 
-.our-blog .left-image ul li:last-child {
+.our-blog .left-image ul li.last-child {
   margin-right: 0px;
 }
 
@@ -1167,10 +1167,10 @@ Blog
 }
 
 
-/* 
+/*
 ---------------------------------------------
 contact
---------------------------------------------- 
+---------------------------------------------
 */
 
 .contact-us {
@@ -1300,10 +1300,10 @@ form#contact button:hover {
 }
 
 
-/* 
+/*
 ---------------------------------------------
 Footer Style
---------------------------------------------- 
+---------------------------------------------
 */
 
 footer p {
@@ -1315,10 +1315,10 @@ footer p a {
   color: #fe3f40;
 }
 
-/* 
+/*
 ---------------------------------------------
 responsive
---------------------------------------------- 
+---------------------------------------------
 */
 
 @media (max-width: 1645px) {
