@@ -13,6 +13,7 @@ import { TruncatePipe } from './integration/pipes/truncate.pipe';
 import { SocialIconDirective } from './integration/directives/social-icon.directive';
 import { NavbarComponent } from './lib/navbar/navbar.component';
 import { PreloaderComponent } from './lib/preloader/preloader.component';
+import { FooterComponent } from './lib/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PreloaderComponent } from './lib/preloader/preloader.component';
     ProfileComponent,
     SocialIconDirective,
     NavbarComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

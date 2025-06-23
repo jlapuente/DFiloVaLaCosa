@@ -9,7 +9,16 @@
   --color-border-default: #30363d;
 }
 
-html {
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+html, body {
+  height: 85vh;
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
 }
 
@@ -21,10 +30,10 @@ html {
   cursor: pointer;
 }
 
-/* 
+/*
 ---------------------------------------------
 Banner Style
---------------------------------------------- 
+---------------------------------------------
 */
 
 .main-banner {
@@ -42,7 +51,7 @@ Banner Style
   background-repeat: no-repeat;
   position: absolute;
   left: 0;
-  top: 100px;
+  top: 0;
   width: 193px;
   height: 467px;
 }
@@ -53,7 +62,7 @@ Banner Style
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
-  top: 100px;
+  top: 0;
   width: 98px;
   height: 290px;
 }

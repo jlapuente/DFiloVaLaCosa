@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { Author } from '../../integration/classes/author';
 import { FeaturedImage } from '../../integration/classes/featuredImage';
 import { AuthorService } from '../../integration/services/author.service';
@@ -15,6 +15,7 @@ declare var $: any;
 })
 export class ProfileComponent {
   private router = inject(Router);
+  loading: boolean = false
   actions: NavBarActions[] = [
     {
       name: 'Home',
@@ -37,12 +38,12 @@ export class ProfileComponent {
   author$: Observable<any> | undefined;
   author: Author = new Author('', '', '', '', new FeaturedImage('', '', ''), '', new Date(), []);
   constructor(private route: ActivatedRoute, private authorService: AuthorService, private mapUtils: MapUtils) {
-    console.log(route);
+    // console.log(route);
   }
 
 
   ngOnInit() {
-    $('#js-preloader').addClass('loaded');
+    this.loading = true;
     this.route.params.subscribe(
       params => {
         const id = params['id'];
@@ -50,8 +51,7 @@ export class ProfileComponent {
           let entry = data.items[0];
           if(entry == undefined) return;
           this.author = this.mapUtils.mapProfile(entry);
-          console.log(entry);
-          $('#js-preloader').addClass('loaded');
+          this.loading = false;
         })
       })
   }

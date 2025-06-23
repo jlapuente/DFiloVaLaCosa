@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContentfulService } from '../../integration/services/contentful.service';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { Post } from '../../integration/classes/post';
 import { FeaturedImage } from '../../integration/classes/featuredImage';
 import { Meta, Title } from '@angular/platform-browser';
@@ -19,6 +19,8 @@ declare var $: any;
 export class BlogComponent {
   private router = inject(Router);
   blogPosts$: Observable<any> | undefined;
+  loading: boolean = false;
+
    actions: NavBarActions[] = [
       {
         name: 'Home',
@@ -45,17 +47,17 @@ export class BlogComponent {
 
   post: Post = new Post('', '', new FeaturedImage(), '', '', new Author(), new Date(), false);
   ngOnInit(): void {
+    this.loading = true;
     this.route.params.subscribe(
       params => {
         const id = params['id'];
-        this.contentfulService.getEntryByUrl(id)
-          .subscribe(data => {
-            let entry = data.items[0];
-            this.post = this.mapUtils.mapPost(entry)
-            console.log(this.post)
-            this.updateMetaTags();
-            $('#js-preloader').addClass('loaded');
-          });
+        this.contentfulService.getEntryByUrl(id).subscribe(data => {
+          let entry = data.items[0];
+          console.log(this.post)
+          this.updateMetaTags();
+          this.post = this.mapUtils.mapPost(entry)
+          this.loading = false
+        });
       }
     )
   }
