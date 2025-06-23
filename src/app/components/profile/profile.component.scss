@@ -266,10 +266,10 @@ Banner Style
 
 .border-box {
   // background-color: var(--color-canvas-default);
-  border-color: var(--color-border-default);
-  border-radius: var(--borderRadius-medium, 0.375rem);
+  // border-color: var(--color-border-default);
+  // border-radius: var(--borderRadius-medium, 0.375rem);
   border-style: solid;
-  border-width: var(--borderWidth-thin, max(1px, 0.0625rem));
+  // border-width: var(--borderWidth-thin, max(1px, 0.0625rem));
 }
 
 .content {
