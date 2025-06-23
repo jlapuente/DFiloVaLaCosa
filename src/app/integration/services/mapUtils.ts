@@ -70,10 +70,9 @@ export class MapUtils {
     author.pronouns = this.getFieldValue(entry.fields['pronouns'], "");
 
     let socialMedia: any = entry.fields['socialMedia']
-    console.log(socialMedia)
     author.socialMedia = socialMedia;
 
-    this.contentfulService.getEntriesByAuthor(3, author.id).subscribe(entries => {
+    this.contentfulService.getEntriesByAuthor(2, author.id).subscribe(entries => {
       entries.items.forEach(entryElement => {
         author.entries.push(this.mapPostPreview(entryElement))
       });
