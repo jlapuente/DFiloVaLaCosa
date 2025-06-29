@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogListComponent } from './components/blog-list/blog-list.component';
-import { MdToHtmlPipe } from './integration/pipes/md-to-html.pipe';
+import { BlogComponent } from './components/blog/blog.component';
+import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { TruncatePipe } from './integration/pipes/truncate.pipe';
 import { SocialIconDirective } from './integration/directives/social-icon.directive';
+import { MdToHtmlPipe } from './integration/pipes/md-to-html.pipe';
+import { TruncatePipe } from './integration/pipes/truncate.pipe';
+import { FooterComponent } from './lib/footer/footer.component';
 import { NavbarComponent } from './lib/navbar/navbar.component';
 import { PreloaderComponent } from './lib/preloader/preloader.component';
-import { FooterComponent } from './lib/footer/footer.component';
+import { PostCardComponent } from './lib/post-card/post-card.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { FooterComponent } from './lib/footer/footer.component';
     SocialIconDirective,
     NavbarComponent,
     PreloaderComponent,
-    FooterComponent
+    FooterComponent,
+    PostCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule
   ],
   providers: [TruncatePipe],
   bootstrap: [AppComponent]

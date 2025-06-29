@@ -17,7 +17,11 @@ export class ContentfulService {
   })
 
   getAllEntries() {
-    const promise = this.client.getEntries();
+    const promise = this.client.getEntries({
+      content_type: "blogPost",
+      "fields.visible": "true",
+      "fields.deleted": "false"
+    });
     return from(promise);
   }
   getLatestEntries() {

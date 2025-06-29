@@ -1,41 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentfulService } from '../../integration/services/contentful.service';
 import { Post } from '../../integration/classes/post';
+import { MapUtils } from 'src/app/integration/services/mapUtils';
 declare var $: any;
 
 
 @Component({
   selector: 'app-blog-list',
   templateUrl: './blog-list.component.html',
-  styleUrls: ['./blog-list.component.css']
+  styleUrls: ['./blog-list.component.scss']
 })
 export class BlogListComponent implements OnInit {
 
   page: number = 1;
   entries: any[] = [];
+  loading: boolean = false;
+  posts: Post[] = [];
   ngOnInit(): void {
-
-  }
-
-  constructor(private _contentfulService: ContentfulService) {
-
-  }
-
-  getNextEntries() {
-    this.loading(false);
-    this._contentfulService.getTenEntries((this.page-1)*10).subscribe(data => {
-      this.loading(true);
-      this.entries = data.items;
-      // console.log(this.entries);
+    this._contentfulService.getAllEntries().subscribe(entries => {
+      entries.items.forEach(entryElement => {
+        this.posts.push(this.mapUtils.mapPostPreview(entryElement))
+      });
+      console.log(entries)
     });
   }
 
-  changePage(pageNumber: number) {
-    this.page = pageNumber;
-    this.getNextEntries();
+  constructor(private _contentfulService: ContentfulService, private mapUtils: MapUtils) {
+
   }
 
-  loading(on: boolean) {
-    on ? $('#js-preloader').addClass('loaded') : $('#js-preloader').removeClass('loaded');
+  availableTags: string[] = ["Angular", "JavaScript", "TypeScript", "CSS", "HTML", "React", "Vue.js", "Node.js"];
+
+  searchTitle: string = '';
+  selectedTags: string[] = [];
+
+  onSearch(): void {
+    console.log('Search initiated with title:', this.searchTitle, 'and tags:', this.selectedTags);
+  }
+
+  onClearFilters(): void {
+    this.searchTitle = '';
+    this.selectedTags = [];
+    // Emitir valores vacíos para limpiar los filtros
+    this.onSearch();
   }
 }

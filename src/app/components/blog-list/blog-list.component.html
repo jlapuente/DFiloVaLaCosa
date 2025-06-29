@@ -1,1 +1,32 @@
-<!-- <input type="text" [[(ngModel)]="page"> -->
+<body>
+  <app-navbar></app-navbar>
+<div class="main-banner wow fadeIn flex-grow-1 d-flex flex-column">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <label for="titleSearch">Buscar por título</label>
+        <input type="text" class="form-control" id="titleSearch" placeholder="Ingrese título del post"
+        [(ngModel)]="searchTitle" name="searchTitle">
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <label for="tagsSelect">Filtrar por etiquetas</label>
+        <ng-select [multiple]="true" [closeOnSelect]="false" [searchable]="true" placeholder="Selecciona etiquetas..."
+        [(ngModel)]="selectedTags" name="selectedTags">
+        <ng-option *ngFor="let tag of availableTags" [value]="tag">{{tag}}</ng-option>
+        </ng-select>
+        <small class="form-text text-muted">Selecciona una o varias etiquetas</small>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+    <ng-container *ngFor="let entry of posts; let i = index">
+        <div class="col-lg-3 d-flex align-items-stretch">
+          <app-post-card [post]="entry"></app-post-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+</body>

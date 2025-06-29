@@ -51,7 +51,8 @@ export class MapUtils {
     post.urlHandler = this.getFieldValue(entry.fields['urlHandler'], '');
     post.featuredImage = entry.fields['featuredImage'] ? this.imageService.createImage(entry.fields['featuredImage']) : new FeaturedImage();
     post.summary = this.getFieldValue(entry.fields['summary'], '');
-
+    post.author = entry.fields['authorReference'] ? this.createReducedAuthor(entry.fields['authorReference']) : new Author();
+    post.updatedDate = this.getDateValue(entry.fields['updatedDate']);
     if (entry.fields['tags']) {
       let tags: any = entry.fields['tags'];
       post.tags = tags;
@@ -130,5 +131,20 @@ export class MapUtils {
   createAuthor(entry: any): Author {
     let field = entry.fields;
     return new Author(field.name, field.id, field.pronouns, field.description, this.imageService.createImage(field.profileImage), field.location, field.birthdate, field.socialMedia);
+  }
+  createReducedAuthor(entry: any): Author {
+    let field = entry.fields;
+
+    return new Author(this.getReducedName(field.name), field.id);
+  }
+
+  getReducedName(name: string) {
+  if (typeof name !== "string") return "";
+
+  const words = name.trim().split(/\s+/);
+  const firstName = words[0] || "";
+  const surname = words[1] || "";
+
+  return `${firstName} ${surname}`.trim();
   }
 }
