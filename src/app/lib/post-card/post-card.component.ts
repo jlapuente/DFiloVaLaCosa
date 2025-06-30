@@ -9,5 +9,7 @@ import { Post } from 'src/app/integration/classes/post';
 export class PostCardComponent {
 
   @Input() post!: Post;
+  @Input() showReadMore: boolean = false;
+  @Input() truncate: number = 360;
 
 }
