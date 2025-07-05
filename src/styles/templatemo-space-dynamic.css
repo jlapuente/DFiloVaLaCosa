@@ -221,9 +221,10 @@ a.main-red-button{
   letter-spacing: 0.25px;
   transition: background-color 0.3s ease;
   cursor: pointer;
-  &:hover {
-      background-color: var(--blue-color);
-    }
+}
+
+a.main-red-button:hover {
+  background-color: var(--blue-color);
 }
 
 .main-white-button a {
@@ -768,7 +769,7 @@ About Us Style
 }
 
 .about-us {
-  background-image: url(../images/about-bg.png);
+  background-image: url(src/assets/images/about-bg.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1109,7 +1110,7 @@ contact
 
 .contact-us {
   padding: 160px 0px;
-  background-image: url(../images/contact-bg.png);
+  background-image: url(src/assets/images/contact-bg.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

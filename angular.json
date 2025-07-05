@@ -26,7 +26,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/variables.scss",
+              "src/styles/fontfaces.scss",
+              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "src/assets/css/fontawesome.css",
+              "src/styles/templatemo-space-dynamic.css",
+              "src/styles/animated.css",
+              "src/styles/owl.css"
             ],
             "scripts": [
               "src/assets/vendor/jquery/jquery.js",
@@ -99,7 +106,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/variables.scss",
+              "src/styles/fontfaces.scss",
+              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "src/assets/css/fontawesome.css",
+              "src/styles/templatemo-space-dynamic.css",
+              "src/styles/animated.css",
+              "src/styles/owl.css"
             ],
             "scripts": [
               "src/assets/vendor/jquery/jquery.js",

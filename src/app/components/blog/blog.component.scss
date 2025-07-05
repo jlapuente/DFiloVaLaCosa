@@ -64,14 +64,14 @@ h1.post-title {
   margin: 0.3125em;
   color: white;
   transition: background-color 0.3s;
+}
 
-  &:hover {
-    background-color: var(--blue-color);
-  }
+.chip:hover {
+  background-color: var(--blue-color);
+}
 
-  i {
-    margin-right: 0.5em;
-  }
+.chip i {
+  margin-right: 0.5em;
 }
 
 .author-photo {
