@@ -8,7 +8,6 @@ import { Constants } from '../constants';
   providedIn: 'root'
 })
 export class ContentfulService {
-
   constructor() { }
 
   private client = createClient({
@@ -24,6 +23,26 @@ export class ContentfulService {
     });
     return from(promise);
   }
+
+  getAllEntriesByFilters(searchTitle: string, selectedTags: string[]) {
+    const query: any = {
+      content_type: "blogPost",
+      "fields.visible": "true",
+      "fields.deleted": "false"
+    };
+
+    if (searchTitle) {
+      query["fields.tittle[match]"] = searchTitle;
+    }
+
+    if (selectedTags && selectedTags.length > 0) {
+      query["fields.tags[in]"] = selectedTags;
+    }
+
+    const promise = this.client.getEntries(query);
+    return from(promise);
+  }
+
   getLatestEntries() {
     const promise = this.client.getEntries(
       {

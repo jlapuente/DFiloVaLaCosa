@@ -127,8 +127,8 @@
                     <h4>{{posts[0].fields.tittle}}</h4>
                   </a>
                   <p class="post-content">{{posts[0].fields.summary}}</p>
-                  <div class="main-blue-button">
-                    <a [routerLink]="['/blogs', posts[0].fields.urlHandler]">Leer mas</a>
+                  <div>
+                    <a class="main-blue-button" [routerLink]="['/blogs', posts[0].fields.urlHandler]">Leer mas</a>
                   </div>
                 </div>
               </div>
@@ -232,8 +232,8 @@
                 <div class="col-lg-12">
                   <fieldset>
                     <!--TODO: Esto era un button, hay que aplicarle los estilos-->
-                    <div class="main-blue-button">
-                      <a id="form-submit" (click)="sendMail()">Enviar mensaje</a>
+                    <div>
+                      <a id="form-submit" class="main-blue-button" (click)="sendMail()">Enviar mensaje</a>
                     </div>
                   </fieldset>
                 </div>

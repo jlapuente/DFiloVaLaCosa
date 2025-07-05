@@ -8,9 +8,9 @@
       </h2>
       <p class="col-12 col-lg-4 text-end post-date">{{post.updatedDate | date : 'dd/MM/yyyy' }}</p>
     </div>
-    <p [routerLink]="['/blogs', post.urlHandler]" class="card-text card-text-container flex-grow-1 redirection-handler">{{post.summary | truncate:[truncate, '...'] }}</p>
-    <div class="main-blue-button mt-auto" *ngIf="showReadMore">
-      <a [routerLink]="['/blogs', post.urlHandler]">Leer más</a>
+    <p [routerLink]="['/blogs', post.urlHandler]" class="card-text card-text-container flex-grow-1 redirection-handler">{{post.summary | truncate:[truncateLength, '...'] }}</p>
+    <div class="mt-auto" *ngIf="showReadMore">
+      <a class="main-blue-button" [routerLink]="['/blogs', post.urlHandler]">Leer más</a>
     </div>
   </div>
 </div>

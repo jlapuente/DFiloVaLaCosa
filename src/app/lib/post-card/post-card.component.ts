@@ -10,6 +10,6 @@ export class PostCardComponent {
 
   @Input() post!: Post;
   @Input() showReadMore: boolean = false;
-  @Input() truncate: number = 360;
+  @Input() truncateLength: number = 360;
 
 }
