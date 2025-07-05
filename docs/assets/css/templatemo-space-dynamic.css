@@ -196,7 +196,7 @@ body {
   color: #fe3f40;
 }
 
-.main-blue-button a {
+a.main-blue-button{
   display: inline-block;
   background-color: #03a4ed;
   font-size: 15px;
@@ -206,11 +206,12 @@ body {
   padding: 12px 25px;
   border-radius: 23px;
   letter-spacing: 0.25px;
+  cursor: pointer;
 }
 
 a.main-red-button{
   display: inline-block;
-  background-color: #fe3f40;
+  background-color: var(--red-color);
   font-size: 15px;
   font-weight: 400;
   color: #fff;
@@ -218,6 +219,11 @@ a.main-red-button{
   padding: 12px 25px;
   border-radius: 23px;
   letter-spacing: 0.25px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  &:hover {
+      background-color: var(--blue-color);
+    }
 }
 
 .main-white-button a {
