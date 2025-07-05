@@ -13,7 +13,7 @@ declare var $: any;
 export class BlogListComponent implements OnInit {
 
   page: number = 1;
-  entries: any[] = [];
+  // entries: any[] = [];
   loading: boolean = false;
   posts: Post[] = [];
   ngOnInit(): void {
@@ -29,14 +29,24 @@ export class BlogListComponent implements OnInit {
 
   }
 
-  availableTags: string[] = ["Angular", "JavaScript", "TypeScript", "CSS", "HTML", "React", "Vue.js", "Node.js"];
+  availableTags: string[] = ["Feminismo", "Actualidad", "Política", "izquierda-unida", "sumar", "podemos", "Filosofía", "Filosofía Queer", "Neoliberalismo"];
 
   searchTitle: string = '';
   selectedTags: string[] = [];
 
   onSearch(): void {
     console.log('Search initiated with title:', this.searchTitle, 'and tags:', this.selectedTags);
-  }
+    this.loading = true;
+    this._contentfulService.getAllEntriesByFilters(this.searchTitle, this.selectedTags).subscribe(entries => {
+      let filteredEntries = entries.items;
+      this.posts = [];
+      filteredEntries.forEach(entryElement => {
+        this.posts.push(this.mapUtils.mapPostPreview(entryElement));
+      });
+      console.log('Filtered entries:', this.posts);
+      this.loading = false;
+    });
+  };
 
   onClearFilters(): void {
     this.searchTitle = '';

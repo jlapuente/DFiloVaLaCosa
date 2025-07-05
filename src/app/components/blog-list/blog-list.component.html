@@ -16,17 +16,22 @@
         </ng-select>
         <small class="form-text text-muted">Selecciona una o varias etiquetas</small>
       </div>
+      <div class="col-xs-12 col-md-4 d-flex align-items-center gap-2">
+        <a class="main-red-button" (click)="onSearch()">Buscar</a>
+        <a class="main-blue-button" (click)="onClearFilters()">Limpiar filtros</a>
+      </div>
     </div>
   </div>
   <div class="container mt-4">
     <div class="row">
     <ng-container *ngFor="let entry of posts; let i = index">
         <div class="d-flex align-items-stretch mt-4" [ngClass]="i == 0 ? 'col-lg-6' : 'col-lg-3'">
-          <app-post-card [post]="entry" [truncate]="i == 0 ? 900 : 360"></app-post-card>
+          <app-post-card [post]="entry" [truncateLength]="i == 0 ? 900 : 360"></app-post-card>
         </div>
       </ng-container>
     </div>
   </div>
   <app-footer></app-footer>
 </div>
+<app-preloader *ngIf="loading"></app-preloader>
 </body>
