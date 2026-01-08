@@ -1,7 +1,7 @@
 /// <reference types="@angular/localize" />
+import '@github/relative-time-element';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
 import { AppModule } from './app/app.module';
 
 

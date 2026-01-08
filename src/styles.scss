@@ -13,3 +13,50 @@ html, body {
   cursor: pointer;
   text-decoration: none;
 }
+
+
+.post-container ul,
+.post-container ol {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.post-container ul {
+  list-style-type: disc;
+}
+
+.post-container ul ul {
+  list-style-type: circle;
+  margin-top: 0.75rem;
+}
+
+.post-container ul ul ul {
+  list-style-type: square;
+}
+
+.post-container ol {
+  list-style-type: decimal;
+}
+
+.post-container ol ol {
+  list-style-type: lower-alpha;
+}
+
+.post-container ol ol ol {
+  list-style-type: lower-roman;
+}
+
+.post-container li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+/* Separación visual limpia */
+.post-container li > p {
+  margin: 0.25rem 0;
+}
+
+/* Para evitar listas apelotonadas */
+.post-container li + li {
+  margin-top: 0.75rem;
+}

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ import { FooterComponent } from './lib/footer/footer.component';
 import { NavbarComponent } from './lib/navbar/navbar.component';
 import { PreloaderComponent } from './lib/preloader/preloader.component';
 import { PostCardComponent } from './lib/post-card/post-card.component';
+import { PostSkeletonComponent } from './lib/post-skeleton/post-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PostCardComponent } from './lib/post-card/post-card.component';
     NavbarComponent,
     PreloaderComponent,
     FooterComponent,
-    PostCardComponent
+    PostCardComponent,
+    PostSkeletonComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,9 @@ import { PostCardComponent } from './lib/post-card/post-card.component';
     NgSelectModule
   ],
   providers: [TruncatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
 })
 export class AppModule { }

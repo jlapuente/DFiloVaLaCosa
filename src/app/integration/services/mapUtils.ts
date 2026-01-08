@@ -102,10 +102,13 @@ export class MapUtils {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields } } }) =>
           `<p class='asset-container'>
-          <img class='post-image' src="${fields.file.url}" alt="${fields.title}"
-           height=${fields.file.details.image.height} width=${fields.file.details.image.width}/>
-           <small class='subtext'>${fields.description}</small>
-           </p>`,
+          <img class='post-image' 
+              src="${fields.file.url}" 
+              alt="${fields.title}" 
+              height="${fields.file.details.image.height}" 
+              width="${fields.file.details.image.width}" />
+          <small class='subtext'>${fields.description || ''}</small>
+          </p>`,
         [BLOCKS.HEADING_1]: (node, next) => (`<h2 class='titulo'> ${next(node.content)} </h2>`),
         [BLOCKS.HEADING_2]: (node, next) => (`<h3> ${next(node.content)} </h3>`),
         [BLOCKS.HEADING_3]: (node, next) => (`<h4> ${next(node.content)} </h4>`),
@@ -119,6 +122,21 @@ export class MapUtils {
           }
           return `<p>${content}</p>`;
         },
+        [BLOCKS.UL_LIST]: (node, next) => {
+          const items = node.content
+            .map((liNode: any) => `<li class="post-list-item">${next(liNode.content)}</li>`)
+            .join('');
+          return `<ul>${items}</ul>`;
+        },
+
+        [BLOCKS.OL_LIST]: (node, next) => {
+          const items = node.content
+            .map((liNode: any) => `<li>${next(liNode.content)}</li>`)
+            .join('');
+          return `<ol>${items}</ol>`;
+        },
+
+        [BLOCKS.LIST_ITEM]: (node, next) => `<li>${next(node.content)}</li>`,
       }
     };
 

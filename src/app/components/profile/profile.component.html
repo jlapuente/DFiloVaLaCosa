@@ -21,9 +21,8 @@
                     </span>
                   </div>
                   <ul>
-                    <li>{{author.location}}</li>
-                    <li>{{author.birthdate | date: 'dd/MM/yyyy' }}</li>
-                    <!-- <li>{{author.socialMedia}}</li> -->
+                    <li class="no-list">{{author.location}}</li>
+                    <li class="no-list">{{author.birthdate | date: 'dd/MM/yyyy' }}</li>
                   </ul>
                   <ul *ngIf="author.socialMedia && author.socialMedia.length" class="mt-4">
                     <li *ngFor="let sm of author.socialMedia"> <a [href]="sm" appSocialIcon class="link-primary text-decoration-none">{{getDisplayName(sm)}}</a></li>

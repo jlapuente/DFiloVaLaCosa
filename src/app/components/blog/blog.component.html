@@ -2,42 +2,47 @@
   <app-navbar [actions]=actions></app-navbar>
 
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-    <app-preloader *ngIf="loading"></app-preloader>
-    <div class="container">
+    <div class="container" >
+      <ng-container *ngIf="post; else skeleton">
       <div class="post-container" *ngIf="post.content">
-        <h1 class="post-title">{{post.title}}</h1>
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-              <div class="content text-center">
-                <figure>
-                  <img [src]="post.featuredImage.image" [alt]="post.featuredImage.title" class="img-fluid">
-                  <figcaption>{{post.featuredImage.title}} - {{post.featuredImage.description}} </figcaption>
-                </figure>
-                <div class="row mt-4">
-                  <div id="author-container" class="col-12 col-md-6 col-lg-6 d-flex">
-                    <img [src]="post.author.profileImage.image" class="author-photo rounded-circle"
-                      alt="{{ post.author.name }}">
-                    <div class="author-info ms-3">
-                      <a [routerLink]="['/profile', post.author.id]"><h5 class="author-name mb-0">{{ post.author.name }}</h5></a>
-                      <p class="author">{{post.updatedDate | date : 'dd/MM/yyyy' }}</p>
+          <h1 class="post-title">{{post.title}}</h1>
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="content text-center">
+                  <figure>
+                    <img [src]="post.featuredImage.image" [alt]="post.featuredImage.title" class="img-fluid">
+                    <figcaption>{{post.featuredImage.title}} - {{post.featuredImage.description}} </figcaption>
+                  </figure>
+                  <div class="row mt-4">
+                    <div id="author-container" class="col-12 col-md-6 col-lg-6 d-flex">
+                      <img [src]="post.author.profileImage.image" class="author-photo rounded-circle"
+                        alt="{{ post.author.name }}">
+                      <div class="author-info ms-3">
+                        <a [routerLink]="['/profile', post.author.id]"><h5 class="author-name mb-0">{{ post.author.name }}</h5></a>
+                        <p class="author"><relative-time [attr.datetime]="post.updatedDate.toISOString()" format="relative" tense="past" time-zone="Europe/Madrid"> {{post.updatedDate}} </relative-time></p>
+                        
+                      </div>
+                    </div>
+                    <div id="chips-container" class="col-12 col-md-6 col-lg-6 d-flex tags">
+                      <ng-container *ngFor="let tag of post.tags">
+                        <div class="chip wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+                          {{tag}}
+                        </div>
+                      </ng-container>
                     </div>
                   </div>
-                  <div id="chips-container" class="col-12 col-md-6 col-lg-6 d-flex tags">
-                    <ng-container *ngFor="let tag of post.tags">
-                      <div class="chip wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
-                        {{tag}}
-                      </div>
-                    </ng-container>
-                  </div>
+                  <p class="mt-4" [innerHTML]="post.content | mdToHtml"></p>
                 </div>
-                <p class="mt-4" [innerHTML]="post.content | mdToHtml"></p>
               </div>
             </div>
           </div>
         </div>
+      </ng-container>
+      <ng-template #skeleton>
+        <app-post-skeleton></app-post-skeleton>
+      </ng-template>
       </div>
-    </div>
   </div>
 
   <div id="about" class="about-us section">
@@ -52,11 +57,4 @@
     </div>
   </div>
   <app-footer></app-footer>
-  <!-- Scripts -->
-  <!-- <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/animation.js"></script>
-  <script src="assets/js/imagesloaded.js"></script> -->
-
 </body>

@@ -1,0 +1,89 @@
+.skeleton {
+  --base: #e0e0e0;
+  --highlight: #f5f5f5;
+
+  .skeleton-title {
+    height: 32px;
+    width: 70%;
+    margin: 1rem auto;
+    border-radius: 8px;
+    background: linear-gradient(90deg,
+        var(--base) 25%,
+        var(--highlight) 37%,
+        var(--base) 63%);
+    animation: shimmer 1.4s infinite;
+  }
+
+  .skeleton-image {
+    height: 320px;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    background: linear-gradient(90deg,
+        var(--base) 25%,
+        var(--highlight) 37%,
+        var(--base) 63%);
+    animation: shimmer 1.4s infinite;
+  }
+
+  .skeleton-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .skeleton-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(90deg,
+          var(--base) 25%,
+          var(--highlight) 37%,
+          var(--base) 63%);
+      animation: shimmer 1.4s infinite;
+    }
+
+    .skeleton-line {
+      height: 14px;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg,
+          var(--base) 25%,
+          var(--highlight) 37%,
+          var(--base) 63%);
+      animation: shimmer 1.4s infinite;
+
+      &.short {
+        width: 120px;
+      }
+
+      &.very-short {
+        width: 80px;
+      }
+    }
+  }
+
+  .skeleton-text .skeleton-line {
+    height: 14px;
+    margin: 0.75rem 0;
+    width: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg,
+        var(--base) 25%,
+        var(--highlight) 37%,
+        var(--base) 63%);
+    animation: shimmer 1.4s infinite;
+
+    &.short {
+      width: 60%;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+
+  100% {
+    background-position: 400px 0;
+  }
+}

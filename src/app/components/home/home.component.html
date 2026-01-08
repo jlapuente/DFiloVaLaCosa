@@ -119,9 +119,9 @@
               <div class="info">
                 <div class="inner-content">
                   <ul>
-                    <li><i class="fa fa-calendar"></i> {{posts[0].fields.updatedDate | date: 'dd/MM/yyyy'}}</li>
-                    <li><i class="fa fa-users"></i> {{posts[0].fields.authorReference.fields.name}}</li>
-                    <li><i class="fa fa-folder"></i> {{ posts[0].fields.tags[0]}}</li>
+                    <li class="no-list"><i class="fa fa-calendar"></i> {{posts[0].fields.updatedDate | date: 'dd/MM/yyyy'}}</li>
+                    <li class="no-list"><i class="fa fa-users"></i> {{posts[0].fields.authorReference.fields.name}}</li>
+                    <li class="no-list"><i class="fa fa-folder"></i> {{ posts[0].fields.tags[0]}}</li>
                   </ul>
                   <a [routerLink]="['/blogs', posts[0].fields.urlHandler]">
                     <h4>{{posts[0].fields.tittle}}</h4>
