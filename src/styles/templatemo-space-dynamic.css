@@ -1,39 +1,3 @@
-/*
-
-TemplateMo 562 Space Dynamic
-
-https://templatemo.com/tm-562-space-dynamic
-
-*/
-
-/* ---------------------------------------------
-Table of contents
-------------------------------------------------
-01. font & reset css
-02. reset
-03. global styles
-04. header
-05. banner
-06. features
-07. testimonials
-08. contact
-09. footer
-10. preloader
-11. search
-12. portfolio
-
---------------------------------------------- */
-/*
----------------------------------------------
-font & reset css
----------------------------------------------
-*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-/*
----------------------------------------------
-reset
----------------------------------------------
-*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -42,50 +6,6 @@ figure, header, nav, section, article, aside, footer, figcaption {
   padding: 0;
   border: 0;
   outline: 0;
-}
-
-/* clear fix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-/* ---- .grid-item ---- */
-
-.grid-sizer,
-.grid-item {
-  width: 50%;
-}
-
-.grid-item {
-  float: left;
-}
-
-.grid-item img {
-  display: block;
-  max-width: 100%;
-}
-
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
-}
-
-.clearfix {
-  display: inline-block;
-}
-
-html[xmlns] .clearfix {
-  display: block;
-}
-
-* html .clearfix {
-  height: 1%;
 }
 
 ul, li.no-list {
@@ -227,46 +147,6 @@ a.main-red-button:hover {
   background-color: var(--blue-color);
 }
 
-.main-white-button a {
-  display: inline-block;
-  background-color: #fff;
-  font-size: 15px;
-  font-weight: 400;
-  color: #fe3f40;
-  text-transform: capitalize;
-  padding: 12px 25px;
-  border-radius: 23px;
-  letter-spacing: 0.25px;
-}
-
-/*
----------------------------------------------
-header
----------------------------------------------
-*/
-
-.background-header {
-  background-color: #fff!important;
-  height: 80px!important;
-  position: fixed!important;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
-}
-
-.background-header .logo,
-.background-header .main-nav .nav li a {
-  color: #1e1e1e!important;
-}
-
-.background-header .main-nav .nav li:hover a {
-  color: #fe3f40!important;
-}
-
-.background-header .nav li a.active {
-  color: #fe3f40!important;
-}
 
 .header-area {
   background-color: #fafafa;
@@ -318,13 +198,7 @@ header
   color: #fe3f40;
 }
 
-.background-header .main-nav .logo h4 {
-  line-height: 80px;
-}
 
-.background-header .main-nav .nav {
-  margin-top: 20px !important;
-}
 
 .header-area .main-nav .nav {
   float: right;
@@ -349,12 +223,6 @@ header
   padding-left: 40px;
 }
 
-.header-area .main-nav .nav li.last-child a ,
-.background-header .main-nav .nav li.last-child a {
-  color: #fff !important;
-  padding: 0px 20px;
-  font-weight: 400;
-}
 
 .header-area .main-nav .nav li.last-child a:hover,
 .header-area .main-nav .nav li.last-child a.active {
@@ -377,6 +245,12 @@ header
   letter-spacing: 1px;
 }
 
+.header-area .main-nav .nav li.last-child a{
+  color: #fff !important;
+  padding: 0 20px;
+  font-weight: 400;
+}
+
 .header-area .main-nav .nav li a {
   color: #2a2a2a;
 }
@@ -386,90 +260,6 @@ header
   color: #fe3f40!important;
 }
 
-.background-header .main-nav .nav li:hover a,
-.background-header .main-nav .nav li a.active {
-  color: #fe3f40!important;
-  opacity: 1;
-}
-
-.header-area .main-nav .nav li.last-child a:hover ,
-.background-header .main-nav .nav li.last-child a:hover {
-  background-color: #03a4ed;
-}
-
-.header-area .main-nav .nav li.submenu {
-  position: relative;
-  padding-right: 30px;
-}
-
-.header-area .main-nav .nav li.submenu:after {
-  font-family: FontAwesome;
-  content: "\f107";
-  font-size: 12px;
-  color: #2a2a2a;
-  position: absolute;
-  right: 18px;
-  top: 12px;
-}
-
-.background-header .main-nav .nav li.submenu:after {
-  color: #2a2a2a;
-}
-
-.header-area .main-nav .nav li.submenu ul {
-  position: absolute;
-  width: 200px;
-  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  top: 50px;
-  opacity: 0;
-  transform: translateY(+2em);
-  visibility: hidden;
-  z-index: -1;
-  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
-}
-
-.header-area .main-nav .nav li.submenu ul li {
-  margin-left: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.header-area .main-nav .nav li.submenu ul li a {
-  opacity: 1;
-  display: block;
-  background: #f7f7f7;
-  color: #2a2a2a!important;
-  padding-left: 20px;
-  height: 40px;
-  line-height: 40px;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  position: relative;
-  font-size: 13px;
-  font-weight: 400;
-  border-bottom: 1px solid #eee;
-}
-
-.header-area .main-nav .nav li.submenu ul li a:hover {
-  background: #fff;
-  color: #fe3f40!important;
-  padding-left: 25px;
-}
-
-.header-area .main-nav .nav li.submenu ul li a:hover:before {
-  width: 3px;
-}
-
-.header-area .main-nav .nav li.submenu:hover ul {
-  visibility: visible;
-  opacity: 1;
-  z-index: 1;
-  transform: translateY(0%);
-  transition-delay: 0s, 0s, 0.3s;
-}
 
 .header-area .main-nav .menu-trigger {
   cursor: pointer;
@@ -691,37 +481,7 @@ header
     background: #eee !important;
     color: #fe3f40!important;
   }
-  .header-area .main-nav .nav li.submenu ul {
-    position: relative;
-    visibility: inherit;
-    opacity: 1;
-    z-index: 1;
-    transform: translateY(0%);
-    transition-delay: 0s, 0s, 0.3s;
-    top: 0px;
-    width: 100%;
-    box-shadow: none;
-    height: 0px;
-  }
-  .header-area .main-nav .nav li.submenu ul li a {
-    font-size: 12px;
-    font-weight: 400;
-  }
-  .header-area .main-nav .nav li.submenu ul li a:hover:before {
-    width: 0px;
-  }
-  .header-area .main-nav .nav li.submenu ul.active {
-    height: auto !important;
-  }
-  .header-area .main-nav .nav li.submenu:after {
-    color: #3B566E;
-    right: 25px;
-    font-size: 14px;
-    top: 15px;
-  }
-  .header-area .main-nav .nav li.submenu:hover ul, .header-area .main-nav .nav li.submenu:focus ul {
-    height: 0px;
-  }
+ 
 }
 
 @media (min-width: 767px) {

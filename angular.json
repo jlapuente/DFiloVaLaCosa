@@ -32,18 +32,14 @@
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
               "src/assets/css/fontawesome.css",
               "src/styles/templatemo-space-dynamic.css",
-              "src/styles/animated.css",
-              "src/styles/owl.css"
+              "src/styles/animated.css"
             ],
             "scripts": [
               "src/assets/vendor/jquery/jquery.js",
               "src/assets/vendor/bootstrap/js/bootstrap.min.js",
               "src/assets/js/animation.js",
-              "src/assets/js/imagesloaded.js",
               "src/assets/js/isotope.js",
-              "src/assets/js/owl-carousel.js",
               "src/assets/js/tabs.js",
-              "src/assets/js/templatemo-custom.js",
               "node_modules/marked/marked.min.js"
             ]
           },
@@ -112,18 +108,14 @@
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
               "src/assets/css/fontawesome.css",
               "src/styles/templatemo-space-dynamic.css",
-              "src/styles/animated.css",
-              "src/styles/owl.css"
+              "src/styles/animated.css"
             ],
             "scripts": [
               "src/assets/vendor/jquery/jquery.js",
               "src/assets/vendor/bootstrap/js/bootstrap.min.js",
               "src/assets/js/animation.js",
-              "src/assets/js/imagesloaded.js",
               "src/assets/js/isotope.js",
-              "src/assets/js/owl-carousel.js",
-              "src/assets/js/tabs.js",
-              "src/assets/js/templatemo-custom.js"
+              "src/assets/js/tabs.js"
             ]
           }
         }
