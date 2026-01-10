@@ -23,7 +23,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/CNAME"
             ],
             "styles": [
               "src/styles.scss",
@@ -35,8 +36,6 @@
               "src/styles/animated.css"
             ],
             "scripts": [
-              "src/assets/vendor/jquery/jquery.js",
-              "src/assets/vendor/bootstrap/js/bootstrap.min.js",
               "src/assets/js/animation.js",
               "src/assets/js/isotope.js",
               "src/assets/js/tabs.js",
@@ -99,7 +98,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/CNAME"
             ],
             "styles": [
               "src/styles.scss",
@@ -111,8 +111,6 @@
               "src/styles/animated.css"
             ],
             "scripts": [
-              "src/assets/vendor/jquery/jquery.js",
-              "src/assets/vendor/bootstrap/js/bootstrap.min.js",
               "src/assets/js/animation.js",
               "src/assets/js/isotope.js",
               "src/assets/js/tabs.js"
