@@ -4,3 +4,19 @@
   --bs-primary: #fe3f40;
   --bs-secondary: #03a4ed;
 }
+
+$color-text-primary: #111827;
+$color-text-secondary: #6b7280;
+$color-surface: #ffffff;
+$color-border: #e5e7eb;
+
+$radius-lg: 1rem;
+$radius-md: 0.5rem;
+
+$shadow-card:
+  0 4px 10px rgba(0, 0, 0, 0.06),
+  0 12px 32px rgba(0, 0, 0, 0.12);
+
+$shadow-card-hover:
+  0 6px 14px rgba(0, 0, 0, 0.08),
+  0 18px 40px rgba(0, 0, 0, 0.16);
