@@ -33,7 +33,7 @@ jobs:
 
       - name: Generate Constants.ts
         run: |
-          cat <<EOF > src/app/constants.ts
+          cat <<EOF > src/app/integration/constants.ts
           export class Constants {
             public static SERVICE_ID = "${{ secrets.EMAILJS_SERVICE_ID }}";
             public static TEMPLATE_ID = "${{ secrets.EMAILJS_TEMPLATE_ID }}";
