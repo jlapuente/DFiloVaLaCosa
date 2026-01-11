@@ -30,7 +30,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
+      - name: Debug secrets (temporary)
+        run: |
+          if [ -z "${{ secrets.CONTENTFUL_ACCESS_TOKEN }}" ]; then
+            echo "❌ CONTENTFUL_ACCESS_TOKEN is EMPTY"
+            exit 1
+          else
+            echo "✅ CONTENTFUL_ACCESS_TOKEN is set"
+          fi
       - name: Generate Constants.ts
         run: |
           cat <<EOF > src/app/integration/constants.ts
