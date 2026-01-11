@@ -43,7 +43,7 @@ jobs:
           EOF
 
       - name: Build Angular
-        run: npm run build -- --configuration production
+        run: npm run build-prod
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
