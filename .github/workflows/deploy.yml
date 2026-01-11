@@ -1,0 +1,64 @@
+name: Deploy Angular to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Constants.ts
+        run: |
+          cat <<EOF > src/app/constants.ts
+          export class Constants {
+            public static SERVICE_ID = "${{ secrets.EMAILJS_SERVICE_ID }}";
+            public static TEMPLATE_ID = "${{ secrets.EMAILJS_TEMPLATE_ID }}";
+            public static PUBLIC_KEY = "${{ secrets.EMAILJS_PUBLIC_KEY }}";
+            public static CONTENTFUL_ACCESS_TOKEN = "${{ secrets.CONTENTFUL_ACCESS_TOKEN }}";
+          }
+          EOF
+
+      - name: Build Angular
+        run: npm run build -- --configuration production
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
