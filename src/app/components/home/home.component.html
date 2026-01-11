@@ -140,7 +140,7 @@
           <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
             <div class="right-list">
               <ng-container *ngFor="let entry of posts | slice:1:4;">
-                  <app-post-card [post]="entry"></app-post-card>
+                  <app-post-card [truncateLength]="500" [post]="entry"></app-post-card>
               </ng-container>
             </div>
           </div>
