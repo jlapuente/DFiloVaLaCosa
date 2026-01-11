@@ -6,6 +6,12 @@ html {
   cursor: pointer;
 }
 
+.our-blog .right-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 /*
 ---------------------------------------------
 Banner Style

@@ -1,6 +1,6 @@
 <article class="article-card">
   <div class="article-card__media">
-    <img [src]="post.featuredImage.image" [alt]="post.title" class="article-card__image" loading="lazy"
+    <img [src]="post.featuredImage.image" [alt]="post.title" class="article-card__image redirection-handler" loading="lazy"
       [routerLink]="['/blogs', post.urlHandler]" />
   </div>
 
@@ -22,7 +22,7 @@
         {{ post.updatedDate | date : 'dd/MM/yyyy' }}
       </time>
 
-      <span class="article-card__author" [routerLink]="['/profile', post.author.id]">
+      <span class="article-card__author redirection-handler" [routerLink]="['/profile', post.author.id]">
         {{ post.author.name }}
       </span>
     </footer>
