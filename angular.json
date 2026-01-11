@@ -38,7 +38,6 @@
             "scripts": [
               "src/assets/js/animation.js",
               "src/assets/js/isotope.js",
-              "src/assets/js/tabs.js",
               "node_modules/marked/marked.min.js"
             ]
           },
@@ -112,8 +111,7 @@
             ],
             "scripts": [
               "src/assets/js/animation.js",
-              "src/assets/js/isotope.js",
-              "src/assets/js/tabs.js"
+              "src/assets/js/isotope.js"
             ]
           }
         }
