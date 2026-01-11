@@ -6,7 +6,6 @@ import { FeaturedImage } from '../../integration/classes/featuredImage';
 import { AuthorService } from '../../integration/services/author.service';
 import { MapUtils } from 'src/app/integration/services/mapUtils';
 import { NavBarActions } from 'src/app/integration/classes/navbar_actions';
-declare var $: any;
 
 @Component({
   selector: 'app-profile',
