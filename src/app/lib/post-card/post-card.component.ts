@@ -12,4 +12,7 @@ export class PostCardComponent {
   @Input() showReadMore: boolean = false;
   @Input() truncateLength: number = 360;
 
+  constructor() {
+    console.log(this.post)
+  }
 }

@@ -11,7 +11,7 @@ import { ContentfulService } from './contentful.service';
   providedIn: 'root'
 })
 export class MapUtils {
-  constructor(private imageService: ImageService, private contentfulService: ContentfulService) { }
+  constructor(private imageService: ImageService) { }
 
 
   private getFieldValue<T>(field: T | undefined, defaultValue: T): string {
@@ -73,13 +73,6 @@ export class MapUtils {
     let socialMedia: any = entry.fields['socialMedia']
     author.socialMedia = socialMedia;
 
-    this.contentfulService.getEntriesByAuthor(2, author.id).subscribe(entries => {
-      entries.items.forEach(entryElement => {
-        author.entries.push(this.mapPostPreview(entryElement))
-      });
-      console.log(entries)
-    });
-
     return author;
   }
 
@@ -102,10 +95,10 @@ export class MapUtils {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields } } }) =>
           `<p class='asset-container'>
-          <img class='post-image' 
-              src="${fields.file.url}" 
-              alt="${fields.title}" 
-              height="${fields.file.details.image.height}" 
+          <img class='post-image'
+              src="${fields.file.url}"
+              alt="${fields.title}"
+              height="${fields.file.details.image.height}"
               width="${fields.file.details.image.width}" />
           <small class='subtext'>${fields.description || ''}</small>
           </p>`,

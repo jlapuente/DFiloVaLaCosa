@@ -70,7 +70,7 @@ export class HomeComponent {
   ngOnInit(): void {
     this.contentfulService.getLatestEntries().subscribe(data => {
       this.loading = true;
-      this.posts = data.items;
+      this.posts = data;
       console.log(this.posts);
     });
   }

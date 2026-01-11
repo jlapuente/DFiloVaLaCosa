@@ -6,6 +6,7 @@ import { FeaturedImage } from '../../integration/classes/featuredImage';
 import { AuthorService } from '../../integration/services/author.service';
 import { MapUtils } from 'src/app/integration/services/mapUtils';
 import { NavBarActions } from 'src/app/integration/classes/navbar_actions';
+import { ContentfulService } from 'src/app/integration/services/contentful.service';
 
 @Component({
   selector: 'app-profile',
@@ -36,7 +37,8 @@ export class ProfileComponent {
 
   author$: Observable<any> | undefined;
   author: Author = new Author('', '', '', '', new FeaturedImage('', '', ''), '', new Date(), []);
-  constructor(private route: ActivatedRoute, private authorService: AuthorService, private mapUtils: MapUtils) {
+  constructor(private route: ActivatedRoute, private authorService: AuthorService,
+    private mapUtils: MapUtils, private contentfulService: ContentfulService) {
     // console.log(route);
   }
 
@@ -50,6 +52,12 @@ export class ProfileComponent {
           let entry = data.items[0];
           if(entry == undefined) return;
           this.author = this.mapUtils.mapProfile(entry);
+          this.contentfulService.getEntriesByAuthor(2, this.author.id).subscribe(entries => {
+            entries.items.forEach(entryElement => {
+              this.author.entries.push(this.mapUtils.mapPostPreview(entryElement))
+            });
+            console.log(entries)
+          });
           this.loading = false;
         })
       })

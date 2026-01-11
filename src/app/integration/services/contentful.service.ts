@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { createClient } from 'contentful';
 import { environment } from '../../environments/environment';
-import { from } from 'rxjs';
+import { from, map } from 'rxjs';
 import { Constants } from '../constants';
+import { MapUtils } from './mapUtils';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContentfulService {
-  constructor() { }
+  constructor(private mapUtils: MapUtils) { }
 
   private client = createClient({
     space: environment.space,
@@ -44,14 +45,18 @@ export class ContentfulService {
   }
 
   getLatestEntries() {
-    const promise = this.client.getEntries(
-      {
-        "limit": 4,
-        content_type: "blogPost",
-        "fields.visible": "true",
-        "fields.deleted": "false"
-      });
-    return from(promise);
+    const promise = this.client.getEntries({
+      limit: 4,
+      content_type: 'blogPost',
+      'fields.visible': 'true',
+      'fields.deleted': 'false'
+    });
+
+    return from(promise).pipe(
+      map(response =>
+        response.items.map(entry => this.mapUtils.mapPostPreview(entry))
+      )
+    );
   }
 
   getTenEntries(entriesToSkip: number) {

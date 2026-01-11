@@ -116,22 +116,22 @@
         <div class="row">
           <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
             <div class="left-image" *ngIf="posts[0]">
-              <a [routerLink]="['/blogs', posts[0].fields.urlHandler]"><img
-                  src="{{posts[0].fields.featuredImage.fields.file.url}}"
-                  alt="{{posts[0].fields.featuredImage.fields.title}}"></a>
+              <a [routerLink]="['/blogs', posts[0].urlHandler]"><img
+                  src="{{posts[0].featuredImage.image}}"
+                  alt="{{posts[0].featuredImage.title}}"></a>
               <div class="info">
                 <div class="inner-content">
                   <ul>
-                    <li class="no-list"><i class="fa fa-calendar"></i> {{posts[0].fields.updatedDate | date: 'dd/MM/yyyy'}}</li>
-                    <li class="no-list"><i class="fa fa-users"></i> {{posts[0].fields.authorReference.fields.name}}</li>
-                    <li class="no-list"><i class="fa fa-folder"></i> {{ posts[0].fields.tags[0]}}</li>
+                    <li class="no-list"><i class="fa fa-calendar"></i> {{posts[0].updatedDate | date: 'dd/MM/yyyy'}}</li>
+                    <li class="no-list"><i class="fa fa-users"></i> {{posts[0].author.name}}</li>
+                    <li class="no-list"><i class="fa fa-folder"></i> {{ posts[0].tags[0]}}</li>
                   </ul>
-                  <a [routerLink]="['/blogs', posts[0].fields.urlHandler]">
-                    <h4>{{posts[0].fields.tittle}}</h4>
+                  <a [routerLink]="['/blogs', posts[0].urlHandler]">
+                    <h4>{{posts[0].tittle}}</h4>
                   </a>
-                  <p class="post-content">{{posts[0].fields.summary}}</p>
+                  <p class="post-content">{{posts[0].summary}}</p>
                   <div>
-                    <a class="main-blue-button" [routerLink]="['/blogs', posts[0].fields.urlHandler]">Leer mas</a>
+                    <a class="main-blue-button" [routerLink]="['/blogs', posts[0].urlHandler]">Leer mas</a>
                   </div>
                 </div>
               </div>
@@ -139,53 +139,9 @@
           </div>
           <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
             <div class="right-list">
-              <ul>
-                <li *ngIf="posts[1]">
-                  <div class="left-content align-self-center">
-                    <span><i class="fa fa-calendar"></i>{{posts[1].fields.updatedDate | date: 'dd/MM/yyyy'}}</span>
-                    <a [routerLink]="['/blogs', posts[1].fields.urlHandler]">
-                      <h4>{{posts[1].fields.tittle}}</h4>
-                    </a>
-                    <p class="post-content">{{posts[1].fields.summary}}</p>
-                  </div>
-                  <div class="right-image">
-                    <a [routerLink]="['/blogs', posts[1].fields.urlHandler]"><img
-                        src="{{posts[1].fields.featuredImage.fields.file.url}}" alt=""></a>
-                  </div>
-                </li>
-                <li *ngIf="posts[2]">
-                  <div class="left-content align-self-center">
-                    <span><i class="fa fa-calendar"></i>{{posts[2].fields.updatedDate | date: 'dd/MM/yyyy'}}</span>
-                    <a [routerLink]="['/blogs', posts[2].fields.urlHandler]">
-                      <h4>{{posts[2].fields.tittle}}</h4>
-                    </a>
-                    <p class="post-content">{{posts[2].fields.summary}}</p>
-                  </div>
-                  <div class="right-image">
-                    <a [routerLink]="['/blogs', posts[2].fields.urlHandler]"><img
-                        src="{{posts[2].fields.featuredImage.fields.file.url}}" alt=""></a>
-                  </div>
-                </li>
-                <li *ngIf="posts[3]">
-                  <div class="left-content align-self-center">
-                    <span><i class="fa fa-calendar"></i>{{posts[3].fields.updatedDate | date: 'dd/MM/yyyy'}}</span>
-                    <a [routerLink]="['/blogs', posts[3].fields.urlHandler]">
-                      <h4>{{posts[3].fields.tittle}}</h4>
-                    </a>
-                    <p class="post-content">{{posts[3].fields.summary}}</p>
-                  </div>
-                  <div class="right-image">
-                    <a [routerLink]="['/blogs', posts[3].fields.urlHandler]"><img
-                        src="{{posts[3].fields.featuredImage.fields.file.url}}" alt=""></a>
-                  </div>
-                </li>
-                <li *ngIf="!posts[3]">
-                  <div class="left-content align-self-center">
-                  </div>
-                  <div class="right-image">
-                  </div>
-                </li>
-              </ul>
+              <ng-container *ngFor="let entry of posts | slice:1:4;">
+                  <app-post-card [post]="entry"></app-post-card>
+              </ng-container>
             </div>
           </div>
         </div>
