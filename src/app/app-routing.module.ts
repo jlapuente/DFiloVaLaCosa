@@ -21,6 +21,11 @@ const routes: Routes = [
     title: 'De Filo Va La Cosa'
   },
   {
+    path: 'blog/:id',
+    redirectTo: 'blogs/:id',
+    pathMatch: 'full'
+  },
+  {
     path: 'blogs/:id',
     component: BlogComponent,
     title: 'Post'
