@@ -77,7 +77,7 @@ body {
 }
 
 @media (max-width: 991px) {
-  html, body {
+  html {
     overflow-x: hidden;
   }
   .mobile-top-fix {
@@ -481,7 +481,7 @@ a.main-red-button:hover {
     background: #eee !important;
     color: #fe3f40!important;
   }
- 
+
 }
 
 @media (min-width: 767px) {
@@ -529,7 +529,7 @@ About Us Style
 }
 
 .about-us {
-  background-image: url(src/assets/images/about-bg.png);
+  background-image: url(src/assets/images/wave-01.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
