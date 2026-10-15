@@ -60,13 +60,16 @@ export class BlogComponent {
   private updateMetaTags(): void {
     if (!this.post) return;
 
-    const truncateParams = [180, '...'];
+    const summary = this.truncatePipe.transform(this.post.summary, [180, '...']);
+    const imageUrl = this.post.featuredImage.image.startsWith('//')
+      ? `https:${this.post.featuredImage.image}`
+      : this.post.featuredImage.image;
 
-    this.titleService.setTitle(this.post.title);
+    this.titleService.setTitle(`${this.post.title} | De filosofía va la cosa`);
 
     this.metaTagService.updateTag({
       name: 'description',
-      content: 'Articulo filosófico - ' + this.post.title
+      content: summary
     });
 
     this.metaTagService.updateTag({
@@ -86,7 +89,12 @@ export class BlogComponent {
 
     this.metaTagService.updateTag({
       property: 'og:description',
-      content: this.truncatePipe.transform(this.post.summary, truncateParams)
+      content: summary
+    });
+
+    this.metaTagService.updateTag({
+      property: 'og:image',
+      content: imageUrl
     });
 
     this.metaTagService.updateTag({
@@ -96,7 +104,12 @@ export class BlogComponent {
 
     this.metaTagService.updateTag({
       name: 'twitter:description',
-      content: this.truncatePipe.transform(this.post.summary, truncateParams)
+      content: summary
+    });
+
+    this.metaTagService.updateTag({
+      name: 'twitter:image',
+      content: imageUrl
     });
   }
 }
