@@ -40,6 +40,9 @@
       this.scrollHandler = __bind(this.scrollHandler, this);
       this.start = __bind(this.start, this);
       this.scrolled = true;
+      this.boxes = [];
+      this.isRunning = false;
+      this.observer = null;
       this.config = this.util().extend(options, this.defaults);
     }
 
@@ -54,30 +57,64 @@
     };
 
     WOW.prototype.start = function() {
-      var box, _i, _len, _ref;
-      this.boxes = this.element.getElementsByClassName(this.config.boxClass);
-      if (this.boxes.length) {
-        if (this.disabled()) {
-          return this.resetStyle();
-        } else {
-          _ref = this.boxes;
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            box = _ref[_i];
-            this.applyStyle(box, true);
+      var MutationObserverConstructor = window.MutationObserver;
+      this.element = window.document.documentElement;
+      this.sync(this.element);
+      if (MutationObserverConstructor && !this.observer) {
+        this.observer = new MutationObserverConstructor(function(mutations) {
+          var i, j, mutation, node;
+          for (i = 0; i < mutations.length; i++) {
+            mutation = mutations[i];
+            for (j = 0; j < mutation.addedNodes.length; j++) {
+              node = mutation.addedNodes[j];
+              if (node.nodeType === 1) {
+                this.sync(node);
+              }
+            }
           }
-          window.addEventListener('scroll', this.scrollHandler, false);
-          window.addEventListener('resize', this.scrollHandler, false);
-          return this.interval = setInterval(this.scrollCallback, 50);
+        }.bind(this));
+        this.observer.observe(this.element, { childList: true, subtree: true });
+      }
+    };
+
+    WOW.prototype.sync = function(element) {
+      var box, descendants, i;
+      if (element.nodeType !== 1) {
+        return;
+      }
+      if (element.classList.contains(this.config.boxClass) && this.boxes.indexOf(element) === -1) {
+        this.boxes.push(element);
+        this.applyStyle(element, true);
+      }
+      descendants = element.getElementsByClassName(this.config.boxClass);
+      for (i = 0; i < descendants.length; i++) {
+        box = descendants[i];
+        if (this.boxes.indexOf(box) === -1) {
+          this.boxes.push(box);
+          this.applyStyle(box, true);
         }
       }
+      if (!this.boxes.length || this.isRunning) {
+        return;
+      }
+      if (this.disabled()) {
+        this.resetStyle();
+        this.boxes = [];
+        return;
+      }
+      window.addEventListener('scroll', this.scrollHandler, false);
+      window.addEventListener('resize', this.scrollHandler, false);
+      this.interval = setInterval(this.scrollCallback, 50);
+      this.isRunning = true;
     };
 
     WOW.prototype.stop = function() {
       window.removeEventListener('scroll', this.scrollHandler, false);
       window.removeEventListener('resize', this.scrollHandler, false);
       if (this.interval != null) {
-        return clearInterval(this.interval);
+        clearInterval(this.interval);
       }
+      this.isRunning = false;
     };
 
     WOW.prototype.show = function(box) {
