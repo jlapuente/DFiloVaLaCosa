@@ -289,6 +289,13 @@ Banner Style
   text-align: justify;
 }
 
+@media (min-width: 993px) {
+  .about-us .services .item h4,
+  .about-us .services .item p {
+    color: #1e1e1e;
+  }
+}
+
 .left-content p {
   text-align: justify;
 }
