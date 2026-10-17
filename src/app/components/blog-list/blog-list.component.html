@@ -26,7 +26,7 @@
     <div class="row">
     <ng-container *ngFor="let entry of posts; let i = index">
         <div class="d-flex align-items-stretch mt-4" [ngClass]="i == 0 ? 'col-lg-6' : 'col-lg-3'">
-          <app-post-card [post]="entry" [truncateLength]="i == 0 ? 900 : 360"></app-post-card>
+          <app-post-card [post]="entry" [excerptLines]="i == 0 ? 8 : 4"></app-post-card>
         </div>
       </ng-container>
     </div>

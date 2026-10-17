@@ -286,10 +286,34 @@ Banner Style
 }
 
 .post-content {
-  text-align: justify;
+  text-align: left;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+}
+
+.our-blog .left-image .info .inner-content {
+  position: relative;
 }
 
 @media (min-width: 993px) {
+  #about {
+    margin-top: 0;
+  }
+
+  .about-us {
+    padding-top: 20px;
+    padding-bottom: 240px;
+    background-position: center top;
+    background-size: auto 125%;
+  }
+
+  .about-us .left-image {
+    transform: translateY(150px);
+  }
+
   .about-us .services .item h4,
   .about-us .services .item p {
     color: #1e1e1e;

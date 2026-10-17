@@ -13,8 +13,8 @@
       {{ post.title }}
     </h3>
 
-    <p class="article-card__excerpt redirection-handler" [routerLink]="['/blogs', post.urlHandler]">
-      {{ post.summary | truncate:[truncateLength, '...'] }}
+    <p class="article-card__excerpt redirection-handler" [routerLink]="['/blogs', post.urlHandler]"
+      [style.--excerpt-lines]="excerptLines" [innerHTML]="post.summary | mdToHtml:true">
     </p>
 
     <footer class="article-card__meta">

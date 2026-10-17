@@ -27,13 +27,6 @@
     flex-direction: column;
   }
 
-  @media (max-width: 640px) {
-  .article-card__excerpt {
-    max-height: 6.5rem;
-    overflow: hidden;
-  }
-}
-
   // ==================================================
   // Media
   // ==================================================
@@ -113,7 +106,10 @@
     color: $color-text-secondary;
     line-height: 1.5;
     margin: 0;
-
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--excerpt-lines, 4);
+    overflow: hidden;
   }
 
   // ==================================================

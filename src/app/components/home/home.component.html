@@ -115,7 +115,7 @@
                   <a [routerLink]="['/blogs', posts[0].urlHandler]">
                     <h4>{{posts[0].tittle}}</h4>
                   </a>
-                  <p class="post-content">{{posts[0].summary}}</p>
+                  <p class="post-content" [innerHTML]="posts[0].summary | mdToHtml:true"></p>
                   <div>
                     <a class="main-blue-button" [routerLink]="['/blogs', posts[0].urlHandler]">Leer mas</a>
                   </div>
@@ -126,7 +126,7 @@
           <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
             <div class="right-list">
               <ng-container *ngFor="let entry of posts | slice:1:4;">
-                  <app-post-card [truncateLength]="500" [post]="entry"></app-post-card>
+                  <app-post-card [excerptLines]="5" [post]="entry"></app-post-card>
               </ng-container>
             </div>
           </div>
