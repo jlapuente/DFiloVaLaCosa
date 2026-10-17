@@ -36,9 +36,7 @@
               "src/styles/animated.css"
             ],
             "scripts": [
-              "src/assets/js/animation.js",
-              "src/assets/js/isotope.js",
-              "node_modules/marked/marked.min.js"
+              "src/assets/js/animation.js"
             ]
           },
           "configurations": {

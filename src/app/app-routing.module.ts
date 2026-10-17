@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { BlogListComponent } from './components/blog-list/blog-list.component';
 
 const routes: Routes = [
   // {
@@ -26,19 +23,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'blogs/:id',
-    component: BlogComponent,
-    title: 'Post'
-  },
-  {
     path: 'blogs',
-    component: BlogListComponent,
-    title: 'Post publicados'
+    loadChildren: () => import('./components/blog/blog-feature.module').then(module => module.BlogFeatureModule)
   },
   {
-    path: 'profile/:id',
-    component: ProfileComponent,
-    title: 'Perfil del autor'
+    path: 'profile',
+    loadChildren: () => import('./components/profile/profile-feature.module').then(module => module.ProfileFeatureModule)
   },
 ];
 
