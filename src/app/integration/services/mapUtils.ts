@@ -94,14 +94,14 @@ export class MapUtils {
     const options: Options = {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields } } }) =>
-          `<p class='asset-container'>
+          `<figure class='asset-container'>
           <img class='post-image'
               src="${fields.file.url}"
               alt="${fields.title}"
               height="${fields.file.details.image.height}"
               width="${fields.file.details.image.width}" />
-          <small class='subtext'>${fields.description || ''}</small>
-          </p>`,
+          <figcaption class='subtext'>${fields.description || ''}</figcaption>
+          </figure>`,
         [BLOCKS.HEADING_1]: (node, next) => (`<h2 class='titulo'> ${next(node.content)} </h2>`),
         [BLOCKS.HEADING_2]: (node, next) => (`<h3> ${next(node.content)} </h3>`),
         [BLOCKS.HEADING_3]: (node, next) => (`<h4> ${next(node.content)} </h4>`),
@@ -111,7 +111,7 @@ export class MapUtils {
         [BLOCKS.PARAGRAPH]: (node, next) => {
           const content = next(node.content).trim();
           if (!content || content === '') {
-            return '<p><br></p>';  // Si está vacío, inserta un <br> o un párrafo vacío
+            return '<div class="article-spacer" aria-hidden="true"></div>';
           }
           return `<p>${content}</p>`;
         },

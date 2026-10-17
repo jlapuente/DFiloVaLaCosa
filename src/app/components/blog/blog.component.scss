@@ -2,7 +2,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 180px 0px 0px 0px;
+  padding: 124px 0px 0px 0px;
   position: relative;
   overflow: hidden;
 
@@ -29,17 +29,20 @@
   }
 }
 
-p {
-  text-align: justify;
-}
-
 .author {
   margin: 0;
+  text-align: left;
 }
 
 img {
   width: 75%;
   text-align: center;
+}
+
+.content figure img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
 }
 
 h1.post-title {
@@ -51,6 +54,10 @@ h1.post-title {
 .content {
   margin-top: 20px;
   max-width: 65ch;
+}
+
+.article-body {
+  text-align: left;
 }
 
 .chip {
@@ -82,6 +89,7 @@ h1.post-title {
 
 .author-info {
   margin-left: 15px;
+  text-align: left;
 }
 
 .author-name {
@@ -117,7 +125,7 @@ figcaption {
 /* Responsive Styles */
 @media (max-width: 992px) {
   .main-banner {
-    padding-top: 196px;
+    padding-top: 124px;
 
     &:after {
       top: 76px;
@@ -127,13 +135,6 @@ figcaption {
 
   #about {
     margin-top: 0px;
-  }
-
-  .author-info {
-    text-align: center;
-  }
-  .author {
-    text-align: center;
   }
 
   .tags {
@@ -171,6 +172,10 @@ figcaption {
 }
 
 @media (max-width: 767px) {
+  .content figure img {
+    max-height: 240px;
+  }
+
   .about-us .left-image {
     bottom: -400px;
   }
@@ -191,6 +196,10 @@ figcaption {
     .author-info {
       text-align: center;
       margin-left: 0;
+    }
+
+    .author {
+      text-align: center;
     }
 
     .chip {
